@@ -1,0 +1,18 @@
+{
+    "McDonalds": [
+        {
+            "name": "McDonalds",
+            "foodName": "french fries",
+            "id": "1",
+            "description": "to do",
+            "image": "to do",
+            "price": "to do"
+
+        },
+        {
+            "name": "McDonalds",
+            "foodName": "to do",
+            "id": "2"
+        }
+    ]
+}
