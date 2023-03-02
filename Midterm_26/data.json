@@ -5,14 +5,91 @@
             "foodName": "french fries",
             "id": "1",
             "description": "to do",
-            "image": "to do",
-            "price": "to do"
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
 
         },
         {
             "name": "McDonalds",
             "foodName": "to do",
-            "id": "2"
+            "id": "2",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
+        }
+    ],
+    "Subway": [
+        {
+            "name": "Subway",
+            "foodName": "to do",
+            "id": "3",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
+
+        },
+        {
+            "name": "Subway",
+            "foodName": "to do",
+            "id": "4",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
+        }
+    ],
+    "Culvers": [
+        {
+            "name": "Culvers",
+            "foodName": "to do",
+            "id": "5",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
+
+        },
+        {
+            "name": "Culvers",
+            "foodName": "to do",
+            "id": "6",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
+        }
+    ],
+    "ColdStone":
+    [
+        {
+            "name": "Cold Stone",
+            "foodName": "to do",
+            "id": "7",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
+
+        },
+        {
+            "name": "Cold Stone",
+            "foodName": "to do",
+            "id": "8",
+            "description": "to do",
+            "imageFood": "to do",
+            "price": "to do",
+            "imageBuilding": "to do",
+            "location": "to do"
         }
     ]
 }
