@@ -32,16 +32,17 @@ function appendData(data)
     mainContainer.appendChild(div4);
 
     //You just need to change image size and add your stuff to the json file and this should hopefully work
+    let mainContainer2 = document.getElementById("mcImage2");
     let foodName = document.createElement("div");
     foodName.innerHTML = `<h2> ${restaurantName[1]["foodName"]}</h2>`;
-    mainContainer.appendChild(foodName);
+    mainContainer2.appendChild(foodName);
     let imageFood = document.createElement("div");
     imageFood.innerHTML = `<img src = ${restaurantName[1]["imageFood"]} alt = "french fries" width = "300px" height = "400px">`;
-    mainContainer.appendChild(imageFood);
+    mainContainer2.appendChild(imageFood);
     let price = document.createElement("div");
     price.innerHTML = `<h3> Price: ${restaurantName[1]["price"]}</h3>`;
-    mainContainer.appendChild(price);
+    mainContainer2.appendChild(price);
     let foodDescription = document.createElement("div");
     foodDescription.innerHTML = `<p> <strong>Description:</strong> ${restaurantName[1]["foodDescription"]}</p>`;
-    mainContainer.appendChild(foodDescription);
+    mainContainer2.appendChild(foodDescription);
 }   
