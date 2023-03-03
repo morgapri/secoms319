@@ -22,7 +22,7 @@ function appendData(data)
     div3.innerHTML = `<h2> ${restaurantName[0]["foodName"]}</h2>`;
     mainContainer.appendChild(div3);
     let div2 = document.createElement("div");
-    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "french fries" width = "400px" height = "300px">`;
+    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "mint ice cream" width = "400px" height = "300px">`;
     mainContainer.appendChild(div2);
     let div5 = document.createElement("div");
     div5.innerHTML = `<h3> Price: ${restaurantName[0]["price"]}</h3>`;
