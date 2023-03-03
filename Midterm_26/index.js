@@ -19,7 +19,8 @@ function appendData(data){
         for (let element of data[productName]) {
             console.log(element);
             let div2 = document.createElement("div");
-            div2.innerHTML = `${element["id"]} : ${element["foodName"]} <br>`;
+            div2.innerHTML = `${element["id"]} : ${element["foodName"]} <br>
+            <img src= "${element['imageBuilding']}" alt = "${element['name']}" width = "400px" height = "250px"> <br>`;
             mainContainer.appendChild(div2);
         }
     }
