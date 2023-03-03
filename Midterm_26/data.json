@@ -51,15 +51,15 @@
     ],
     "Culvers": [
         {
-            "name": "Culvers",
-            "foodName": "to do",
+            "name": "Culver's",
+            "foodName": "Double butterburger with cheddar cheese",
             "id": "5",
             "description": "to do",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Culver%27s_Double_Butterburger_with_Cheddar.jpg",
+            "price": "$4.59",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Culvers%C2%AE_-_panoramio.jpg",
             "location": "525 Gilchrist St, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "The double butterburger with cheddar cheese is a wonderful burger. It has all the best qualities a burger should have. It is slightly charred, has pickles, tomatoes, onions, and lettuce, and comes with the classic cheddar cheese. You will be glad you ordered it!"
 
         },
         {
