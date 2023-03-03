@@ -28,6 +28,6 @@ function appendData(data)
     div5.innerHTML = `<h3> Price: ${restaurantName[0]["price"]}</h3>`;
     mainContainer.appendChild(div5);
     let div4 = document.createElement("div");
-    div4.innerHTML = `<p> Description: ${restaurantName[0]["foodDescription"]}</p>`;
+    div4.innerHTML = `<p> <strong>Description:</strong> ${restaurantName[0]["foodDescription"]}</p>`;
     mainContainer.appendChild(div4);
 }   

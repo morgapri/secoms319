@@ -78,14 +78,14 @@
     [
         {
             "name": "Cold Stone",
-            "foodName": "to do",
+            "foodName": "Mint chocolate chip ice cream",
             "id": "7",
             "description": "to do",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://upload.wikimedia.org/wikipedia/commons/5/58/2019-07-06_20_42_27_A_serving_of_mint_chocolate_chip_ice_cream_at_the_Cold_Stone_Creamery_in_Herndon%2C_Fairfax_County%2C_Virginia.jpg",
+            "price": "$4.25",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Cold_Stone_Creamery_at_Serendra_Plaza%2C_BGC.jpg",
             "location": "1310 S Duff Ave Ste 101, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "Mint chocolate chip ice cream is the best ice cream flavor ever and Cold Stone has the best mint choclate chip ice cream ever. I highly recommend it! But if you don't like mint chocolate chip ice cream there are plenty of other flavors for you to try."
 
         },
         {
