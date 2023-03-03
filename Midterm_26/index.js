@@ -33,18 +33,34 @@ function appendData(data){
     let restaurantSub = data["Subway"];
     let restaurantCul = data["Culvers"];
     let restaurantCold = data["ColdStone"];
+
     let nameMc = document.createElement("div");
     nameMc.innerHTML = `<h1>${restaurantMc[0]["name"]}</h1>`;
     mcdonalds.appendChild(nameMc);
+    let imageMc = document.createElement("div");
+    imageMc.innerHTML = `<img src = ${restaurantMc[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
+    mcdonalds.appendChild(imageMc);
+
     let nameSub = document.createElement("div");
     nameSub.innerHTML = `<h1>${restaurantSub[0]["name"]}</h1>`;
     subway.appendChild(nameSub);
+    let imageSub = document.createElement("div");
+    imageSub.innerHTML = `<img src = ${restaurantSub[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
+    subway.appendChild(imageSub);
+
     let nameCul = document.createElement("div");
     nameCul.innerHTML = `<h1>${restaurantCul[0]["name"]}</h1>`;
     culvers.appendChild(nameCul);
+    let imageCul = document.createElement("div");
+    imageCul.innerHTML = `<img src = ${restaurantCul[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
+    culvers.appendChild(imageCul);
+
     let nameCold = document.createElement("div");
     nameCold.innerHTML = `<h1>${restaurantCold[0]["name"]}</h1>`;
     coldstone.appendChild(nameCold);
+    let imageCold = document.createElement("div");
+    imageCold.innerHTML = `<img src = ${restaurantCold[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
+    coldstone.appendChild(imageCold);
 
 } 
 
