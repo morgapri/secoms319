@@ -2,13 +2,14 @@
     "McDonalds": [
         {
             "name": "McDonalds",
-            "foodName": "french fries",
+            "foodName": "French Fries",
             "id": "1",
             "description": "to do",
             "imageFood": "https://upload.wikimedia.org/wikipedia/commons/c/cb/French_fries_of_McDonald%27s_ltd_Japan.jpg",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
 
         },
         {
@@ -19,7 +20,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
         }
     ],
     "Subway": [
@@ -31,7 +33,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://media-cdn.tripadvisor.com/media/photo-s/1b/5d/52/c1/stoer-front.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
 
         },
         {
@@ -42,7 +45,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://media-cdn.tripadvisor.com/media/photo-s/1b/5d/52/c1/stoer-front.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
         }
     ],
     "Culvers": [
@@ -54,7 +58,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Culvers%C2%AE_-_panoramio.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
 
         },
         {
@@ -65,7 +70,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Culvers%C2%AE_-_panoramio.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
         }
     ],
     "ColdStone":
@@ -78,7 +84,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Cold_Stone_Creamery_at_Serendra_Plaza%2C_BGC.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
 
         },
         {
@@ -89,7 +96,8 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Cold_Stone_Creamery_at_Serendra_Plaza%2C_BGC.jpg",
-            "location": "to do"
+            "location": "to do",
+            "foodDescription": "to do"
         }
     ]
 }
