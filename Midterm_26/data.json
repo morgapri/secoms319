@@ -8,7 +8,7 @@
             "imageFood": "https://upload.wikimedia.org/wikipedia/commons/c/cb/French_fries_of_McDonald%27s_ltd_Japan.jpg",
             "price": "$1.79",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
-            "location": " 3621 Lincoln Way, Ames, IA 50010, United States",
+            "location": " 3621 Lincoln Way, Ames, IA 50010",
             "foodDescription": "McDonald's french fries are some of the most delicious french fries out there. They are salty and crispy, unless they have cooled down, then they are some of the soggiest and grossest french fries you have ever eaten."
 
         },
@@ -20,7 +20,7 @@
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
-            "location": " 3621 Lincoln Way, Ames, IA 50010, United States",
+            "location": " 3621 Lincoln Way, Ames, IA 50010",
             "foodDescription": "to do"
         }
     ],

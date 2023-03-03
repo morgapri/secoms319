@@ -40,6 +40,9 @@ function appendData(data){
     let imageMc = document.createElement("div");
     imageMc.innerHTML = `<img src = ${restaurantMc[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
     mcdonalds.appendChild(imageMc);
+    let locationMc = document.createElement("div");
+    locationMc.innerHTML = `<h3>Location: ${restaurantMc[0]["location"]}</h3>`;
+    mcdonalds.appendChild(locationMc);
 
     let nameSub = document.createElement("div");
     nameSub.innerHTML = `<h1>${restaurantSub[0]["name"]}</h1>`;
@@ -47,6 +50,9 @@ function appendData(data){
     let imageSub = document.createElement("div");
     imageSub.innerHTML = `<img src = ${restaurantSub[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
     subway.appendChild(imageSub);
+    let locationSub = document.createElement("div");
+    locationSub.innerHTML = `<h3>Location: ${restaurantSub[0]["location"]}</h3>`;
+    subway.appendChild(locationSub);
 
     let nameCul = document.createElement("div");
     nameCul.innerHTML = `<h1>${restaurantCul[0]["name"]}</h1>`;
@@ -54,6 +60,9 @@ function appendData(data){
     let imageCul = document.createElement("div");
     imageCul.innerHTML = `<img src = ${restaurantCul[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
     culvers.appendChild(imageCul);
+    let locationCul = document.createElement("div");
+    locationCul.innerHTML = `<h3>Location: ${restaurantCul[0]["location"]}</h3>`;
+    culvers.appendChild(locationCul);
 
     let nameCold = document.createElement("div");
     nameCold.innerHTML = `<h1>${restaurantCold[0]["name"]}</h1>`;
@@ -61,6 +70,9 @@ function appendData(data){
     let imageCold = document.createElement("div");
     imageCold.innerHTML = `<img src = ${restaurantCold[0]["imageBuilding"]} alt = "McDonald's" width = "400px" height = "250px">`;
     coldstone.appendChild(imageCold);
+    let locationCold = document.createElement("div");
+    locationCold.innerHTML = `<h3>Location: ${restaurantCold[0]["location"]}</h3>`;
+    coldstone.appendChild(locationCold);
 
 } 
 
