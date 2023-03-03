@@ -43,6 +43,9 @@ function appendData(data){
     let locationMc = document.createElement("div");
     locationMc.innerHTML = `<h3>Location: ${restaurantMc[0]["location"]}</h3>`;
     mcdonalds.appendChild(locationMc);
+    let descriptionMc = document.createElement("div");
+    descriptionMc.innerHTML = `<p> <strong>Description: </strong>${restaurantMc[0]["description"]}</p>`;
+    mcdonalds.appendChild(descriptionMc);
 
     let nameSub = document.createElement("div");
     nameSub.innerHTML = `<h1>${restaurantSub[0]["name"]}</h1>`;
@@ -53,6 +56,10 @@ function appendData(data){
     let locationSub = document.createElement("div");
     locationSub.innerHTML = `<h3>Location: ${restaurantSub[0]["location"]}</h3>`;
     subway.appendChild(locationSub);
+    let descriptionSub = document.createElement("div");
+    descriptionSub.innerHTML = `<p> <strong>Description: </strong>${restaurantSub[0]["description"]}</p>`;
+    subway.appendChild(descriptionSub);
+    
 
     let nameCul = document.createElement("div");
     nameCul.innerHTML = `<h1>${restaurantCul[0]["name"]}</h1>`;
@@ -63,6 +70,9 @@ function appendData(data){
     let locationCul = document.createElement("div");
     locationCul.innerHTML = `<h3>Location: ${restaurantCul[0]["location"]}</h3>`;
     culvers.appendChild(locationCul);
+    let descriptionCul = document.createElement("div");
+    descriptionCul.innerHTML = `<p> <strong>Description: </strong>${restaurantCul[0]["description"]}</p>`;
+    culvers.appendChild(descriptionCul);
 
     let nameCold = document.createElement("div");
     nameCold.innerHTML = `<h1>${restaurantCold[0]["name"]}</h1>`;
@@ -73,6 +83,9 @@ function appendData(data){
     let locationCold = document.createElement("div");
     locationCold.innerHTML = `<h3>Location: ${restaurantCold[0]["location"]}</h3>`;
     coldstone.appendChild(locationCold);
+    let descriptionCold = document.createElement("div");
+    descriptionCold.innerHTML = `<p> <strong>Description: </strong>${restaurantCold[0]["description"]}</p>`;
+    coldstone.appendChild(descriptionCold);
 
 } 
 
