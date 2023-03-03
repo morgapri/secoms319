@@ -12,5 +12,10 @@ fetch('data.json')
 
 function appendData(data)
 {
+    console.log(data);
     let mainContainer = document.getElementById("mcImage1");
+    let div = document.createElement("div");
+    let restaurantName = data["McDonalds"];
+    div.innerHTML = `${restaurantName[0]["name"]}`;
+    mainContainer.appendChild(div);    
 }
