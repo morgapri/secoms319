@@ -5,7 +5,7 @@
             "foodName": "french fries",
             "id": "1",
             "description": "to do",
-            "imageFood": "to do",
+            "imageFood": "https://upload.wikimedia.org/wikipedia/commons/c/cb/French_fries_of_McDonald%27s_ltd_Japan.jpg",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
             "location": "to do"

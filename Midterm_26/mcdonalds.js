@@ -16,6 +16,9 @@ function appendData(data)
     let mainContainer = document.getElementById("mcImage1");
     let div = document.createElement("div");
     let restaurantName = data["McDonalds"];
-    div.innerHTML = `${restaurantName[0]["name"]}`;
-    mainContainer.appendChild(div);    
+    div.innerHTML = `<h1>${restaurantName[0]["name"]}</h2>`;
+    mainContainer.appendChild(div);   
+    let div2 = document.createElement("div");
+    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "french fries" width = "300px" height = "400px">` 
+    mainContainer.appendChild(div2);
 }
