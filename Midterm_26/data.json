@@ -1,26 +1,26 @@
 {
     "McDonalds": [
         {
-            "name": "McDonalds",
-            "foodName": "French Fries",
+            "name": "McDonald's",
+            "foodName": "Medium French Fries",
             "id": "1",
             "description": "to do",
             "imageFood": "https://upload.wikimedia.org/wikipedia/commons/c/cb/French_fries_of_McDonald%27s_ltd_Japan.jpg",
-            "price": "to do",
+            "price": "$1.79",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
-            "location": "to do",
+            "location": " 3621 Lincoln Way, Ames, IA 50010, United States",
             "foodDescription": "McDonald's french fries are some of the most delicious french fries out there. They are salty and crispy, unless they have cooled down, then they are some of the soggiest and grossest french fries you have ever eaten."
 
         },
         {
-            "name": "McDonalds",
+            "name": "McDonald's",
             "foodName": "to do",
             "id": "2",
             "description": "to do",
             "imageFood": "to do",
             "price": "to do",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
-            "location": "to do",
+            "location": " 3621 Lincoln Way, Ames, IA 50010, United States",
             "foodDescription": "to do"
         }
     ],
