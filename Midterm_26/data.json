@@ -27,14 +27,14 @@
     "Subway": [
         {
             "name": "Subway",
-            "foodName": "to do",
+            "foodName": "6-inch turkey sandwich",
             "id": "3",
             "description": "to do",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://upload.wikimedia.org/wikipedia/commons/d/dc/6_inch_Subway_turkey_sandwich_-_September_2022_-_Sarah_Stierch.jpg",
+            "price": "$3.75",
             "imageBuilding": "https://media-cdn.tripadvisor.com/media/photo-s/1b/5d/52/c1/stoer-front.jpg",
             "location": "302 Lincoln Way #101, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "This delicious turkey sub has fresh tomatoes, crunchy lettuce, and some mildly dry turkey. It is a classic Subway sandwich."
 
         },
         {

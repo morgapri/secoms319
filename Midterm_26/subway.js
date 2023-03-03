@@ -13,7 +13,7 @@ fetch('data.json')
 function appendData(data)
 {
     console.log(data);
-    let mainContainer = document.getElementById("mcImage1");
+    let mainContainer = document.getElementById("subImage1");
     let div = document.createElement("div");
     let restaurantName = data["Subway"];
     div.innerHTML = `<h1>${restaurantName[0]["name"]}</h1>`;
@@ -22,7 +22,7 @@ function appendData(data)
     div3.innerHTML = `<h2> ${restaurantName[0]["foodName"]}</h2>`;
     mainContainer.appendChild(div3);
     let div2 = document.createElement("div");
-    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "french fries" width = "300px" height = "400px">`;
+    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "sandwich" width = "400px" height = "250px">`;
     mainContainer.appendChild(div2);
     let div5 = document.createElement("div");
     div5.innerHTML = `<h3> ${restaurantName[0]["price"]}</h3>`;
