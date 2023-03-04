@@ -22,7 +22,7 @@ function appendData(data)
     div3.innerHTML = `<h2> ${restaurantName[0]["foodName"]}</h2>`;
     mainContainer.appendChild(div3);
     let div2 = document.createElement("div");
-    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "sandwich" width = "400px" height = "250px">`;
+    div2.innerHTML = `<img src = ${restaurantName[0]["imageFood"]} alt = "turkey sandwich" width = "400px" height = "250px">`;
     mainContainer.appendChild(div2);
     let div5 = document.createElement("div");
     div5.innerHTML = `<h3> Price: ${restaurantName[0]["price"]}</h3>`;
@@ -37,7 +37,7 @@ function appendData(data)
     foodName.innerHTML = `<h2> ${restaurantName[1]["foodName"]}</h2>`;
     mainContainer2.appendChild(foodName);
     let imageFood = document.createElement("div");
-    imageFood.innerHTML = `<img src = ${restaurantName[1]["imageFood"]} alt = "french fries" width = "300px" height = "400px">`;
+    imageFood.innerHTML = `<img src = ${restaurantName[1]["imageFood"]} alt = "ham and turkey sub" width = "400px" height = "300px">`;
     mainContainer2.appendChild(imageFood);
     let price = document.createElement("div");
     price.innerHTML = `<h3> Price: ${restaurantName[1]["price"]}</h3>`;

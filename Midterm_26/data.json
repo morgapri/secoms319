@@ -14,14 +14,14 @@
         },
         {
             "name": "McDonald's",
-            "foodName": "to do",
+            "foodName": "10pc McNugget",
             "id": "2",
             "description": "McDonald's is a fast food chain that specializes in burgers, chicken nuggets, and french fries. They are known for always having a broken ice cream machine and putting 'Mc' in front of all their food names.",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://live.staticflickr.com/5498/14527358703_54d4fbab3d_b.jpg",
+            "price": "$5.85",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/7/74/%281%29McDonalds_Cremorne-1.jpg",
             "location": " 3621 Lincoln Way, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "McNuggets are a classic at McDonalds. They are crunchy and juicy and can come with a variety of sauces such as BBQ, honey mustard, ranch. You can't go wrong with chicken nuggets!"
         }
     ],
     "Subway": [
@@ -39,14 +39,14 @@
         },
         {
             "name": "Subway",
-            "foodName": "to do",
+            "foodName": "12-inch club sandwich",
             "id": "4",
             "description": "Subway is a sandwich shop that makes sandwiches to your specific order. It is very customizable and that is what makes it so great!",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://farm5.staticflickr.com/4123/4916173918_fdd2716295_z.jpg",
+            "price": "$10.84",
             "imageBuilding": "https://media-cdn.tripadvisor.com/media/photo-s/1b/5d/52/c1/stoer-front.jpg",
             "location": "302 Lincoln Way #101, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "This tasty club sandwhich has oven-roasted turkey and ham on wheat bread with crunchy lettuce, onions, and mustard. You can't go wrong with a specialty item."
         }
     ],
     "Culvers": [
@@ -64,14 +64,14 @@
         },
         {
             "name": "Culvers",
-            "foodName": "to do",
+            "foodName": "Cheese curds",
             "id": "6",
             "description": "Culver's is a fast food chain that specializes in burgers, cheese curds, and custard. Their butterburgers are one of the better fast food burgers and their cheese curds are very delicious. It is a relatively high quality fast food restaurant.",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://th.bing.com/th/id/R.d0ac375e364783deb50d018b1b9cc598?rik=MCqnCEI8JaLq9g&riu=http%3a%2f%2ffarm4.staticflickr.com%2f3486%2f3767187691_369ea683ca_z.jpg&ehk=vMiUMPvmSMW2zb1eqBoRbHyG4MQasiRPHNHdVxB4hYo%3d&risl=&pid=ImgRaw&r=0",
+            "price": "$4.59",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Culvers%C2%AE_-_panoramio.jpg",
             "location": "525 Gilchrist St, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "Fried cheese curds are a staple at Culver's. If you havn't tried them, you are missing out! Delicious breading and gooy yellow and white cheese are what you'll taste when biting into this item. Try it once, and you'll be hooked!"
         }
     ],
     "ColdStone":
@@ -90,14 +90,14 @@
         },
         {
             "name": "Cold Stone",
-            "foodName": "to do",
+            "foodName": "Chocolate devotion ice cream",
             "id": "8",
             "description": "Cold Stone is a very good ice cream chain. They let you customize your order by choosing the base flavor of you ice cream and up to two mix ins with no extra charge. It leads to a better ice cream experience.",
-            "imageFood": "to do",
-            "price": "to do",
+            "imageFood": "https://live.staticflickr.com/7221/7254116690_dff10612dd_b.jpg",
+            "price": "$6.29",
             "imageBuilding": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Cold_Stone_Creamery_at_Serendra_Plaza%2C_BGC.jpg",
             "location": "1310 S Duff Ave Ste 101, Ames, IA 50010",
-            "foodDescription": "to do"
+            "foodDescription": "If you looking for a chocolate fix, this is a great item to get. This chocolate ice cream with fudge and brownies is delectable and one of my favorites. This is one of their specialty items that is something you should definetly check out!"
         }
     ]
 }
