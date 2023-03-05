@@ -31,7 +31,7 @@ function appendData(data)
     div4.innerHTML = `<p> <strong>Description:</strong> ${restaurantName[0]["foodDescription"]}</p>`;
     mainContainer.appendChild(div4);
 
-    //You just need to change image size and add your stuff to the json file and this should hopefully work
+    
     let mainContainer2 = document.getElementById("subImage2");
     let foodName = document.createElement("div");
     foodName.innerHTML = `<h2> ${restaurantName[1]["foodName"]}</h2>`;
