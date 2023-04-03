@@ -29,16 +29,16 @@ export const Products = [
     },
     {
         "id": 5,
-        "title": "",
-        "price": 0,
-        "description": "",
-        "image": "",
+        "title": "Flowers",
+        "price": 10.99,
+        "description": "These a perfect flowers to give your partner after forgetting something important, skipping out on an event, or even getting caught in a lie!",
+        "image": "https://images.pexels.com/photos/5039320/pexels-photo-5039320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         "id": 6,
-        "title": "",
-        "price": 0,
-        "description": "",
-        "image": "",
+        "title": "Mug",
+        "price": 16.99,
+        "description": "A plain white coffee cup. Totally worth the money",
+        "image": "https://images.pexels.com/photos/1566308/pexels-photo-1566308.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     }
 ]
