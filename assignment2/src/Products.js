@@ -31,7 +31,7 @@ export const Products = [
         "id": 5,
         "title": "Flowers",
         "price": 10.99,
-        "description": "These a perfect flowers to give your partner after forgetting something important, skipping out on an event, or even getting caught in a lie!",
+        "description": "These are perfect flowers to give your partner after forgetting something important, skipping out on an event, or even getting caught in a lie!",
         "image": "https://images.pexels.com/photos/5039320/pexels-photo-5039320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
