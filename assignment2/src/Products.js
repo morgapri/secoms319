@@ -1,10 +1,10 @@
 export const Products = [
     {
         "id": 1,
-        "title": "",
-        "price": 0,
-        "description": "",
-        "image": "",
+        "title": "Toaster",
+        "price": 20.00,
+        "description": "Toasts bread quickly and to perfection!",
+        "image": "https://images.pexels.com/photos/7936648/pexels-photo-7936648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
         "id": 2,
