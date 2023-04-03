@@ -14,9 +14,10 @@ root.render(
 function DisplayItems(){
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState('');
+
+  //event handler for search, doesn't reset when clear though
   const handleChange = (e) => {
     setQuery(e.target.value);
-    console.log("Step 6 : in handleChange, Target Value :",e.target.value," Query Value :",query);
     const results = ProductsCategory.filter(eachProduct => {
     if (e.target.value === "") return ProductsCategory;
     return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
