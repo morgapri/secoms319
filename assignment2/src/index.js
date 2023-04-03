@@ -31,7 +31,6 @@ function DisplayItems(){
   const [query, setQuery] = useState('');
 
 
-  //event handler for search, doesn't reset when clear though
   const handleChange = (e) => {
     setQuery(e.target.value);
     const results = ProductsCategory.filter(eachProduct => {
