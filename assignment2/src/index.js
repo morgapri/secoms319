@@ -19,7 +19,7 @@ function Counter() {
   const [flowers, setFlowers] = useState(0);
   const [mug, setMug] = useState(0);
   return (
-  <div>
+  <div className='counter'>
   <p>Add toaster to cart {toaster}</p>
   <button onClick={()=>{setToaster(toaster+1)}}>+</button>
   <button onClick={()=>{if(toaster>=1)setToaster(toaster-1)}}>-</button>
