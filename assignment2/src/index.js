@@ -22,22 +22,25 @@ function Counter() {
   <div>
   <p>Add toaster to cart {toaster}</p>
   <button onClick={()=>{setToaster(toaster+1)}}>+</button>
-  <button onClick={()=>setToaster(toaster-1)}>-</button>
+  <button onClick={()=>{if(toaster>=1)setToaster(toaster-1)}}>-</button>
   <p>Add fan to cart {fan}</p>
   <button onClick={()=>{setFan(fan+1)}}>+</button>
-  <button onClick={()=>setFan(fan-1)}>-</button>
+  <button onClick={()=>{if(fan>=1)setFan(fan-1)}}>-</button>
   <p>Add eggs to cart {eggs}</p>
   <button onClick={()=>{setEggs(eggs+1)}}>+</button>
-  <button onClick={()=>setEggs(eggs-1)}>-</button>
+  <button onClick={()=>{if(eggs>=1)setEggs(eggs-1)}}>-</button>
   <p>Add couch to cart {couch}</p>
   <button onClick={()=>{setCouch(couch+1)}}>+</button>
-  <button onClick={()=>setCouch(couch-1)}>-</button>
+  <button onClick={()=>{if(couch>=1)setCouch(couch-1)}}>-</button>
   <p>Add flowers to cart {flowers}</p>
   <button onClick={()=>{setFlowers(flowers+1)}}>+</button>
-  <button onClick={()=>setFlowers(flowers-1)}>-</button>
+  <button onClick={()=>{if(flowers>=1)setFlowers(flowers-1)}}>-</button>
   <p>Add mug to cart {mug}</p>
   <button onClick={()=>{setMug(mug+1)}}>+</button>
-  <button onClick={()=>setMug(mug-1)}>-</button>
+  <button onClick={()=>{if(mug >= 1)setMug(mug-1)}}>-</button>
+  <br></br>
+  <br></br>
+  <br></br>
   
   </div>
   );
