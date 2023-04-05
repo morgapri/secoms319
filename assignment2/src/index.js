@@ -12,15 +12,32 @@ root.render(
   </div>
 );
 function Counter() {
-  const [counter, setCounter] = useState(0);
-  const [message, setMessage] = useState("");
-  useEffect(
-    () => {console.log("Render")}, [message]);
+  const [toaster, setToaster] = useState(0);
+  const [fan, setFan] = useState(0);
+  const [eggs, setEggs] = useState(0);
+  const [couch, setCouch] = useState(0);
+  const [flowers, setFlowers] = useState(0);
+  const [mug, setMug] = useState(0);
   return (
   <div>
-  <h1>Counter: {counter}</h1>
-  <button onClick={()=>{setCounter(counter+1)}}>+</button>
-  <button onClick={()=>setCounter(counter-1)}>-</button>
+  <p>Add toaster to cart {toaster}</p>
+  <button onClick={()=>{setToaster(toaster+1)}}>+</button>
+  <button onClick={()=>setToaster(toaster-1)}>-</button>
+  <p>Add fan to cart {fan}</p>
+  <button onClick={()=>{setFan(fan+1)}}>+</button>
+  <button onClick={()=>setFan(fan-1)}>-</button>
+  <p>Add eggs to cart {eggs}</p>
+  <button onClick={()=>{setEggs(eggs+1)}}>+</button>
+  <button onClick={()=>setEggs(eggs-1)}>-</button>
+  <p>Add couch to cart {couch}</p>
+  <button onClick={()=>{setCouch(couch+1)}}>+</button>
+  <button onClick={()=>setCouch(couch-1)}>-</button>
+  <p>Add flowers to cart {flowers}</p>
+  <button onClick={()=>{setFlowers(flowers+1)}}>+</button>
+  <button onClick={()=>setFlowers(flowers-1)}>-</button>
+  <p>Add mug to cart {mug}</p>
+  <button onClick={()=>{setMug(mug+1)}}>+</button>
+  <button onClick={()=>setMug(mug-1)}>-</button>
   
   </div>
   );
@@ -29,6 +46,7 @@ function Counter() {
 function DisplayItems(){
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState('');
+
 
 
   const handleChange = (e) => {
