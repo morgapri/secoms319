@@ -6,11 +6,27 @@ import {Products} from './Products'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div>
+  <div id='order'>
     <DisplayItems />
     <Counter/>
+    <CheckOut/>
+    
   </div>
 );
+
+function CheckOut() {
+  
+  return (
+
+  <button id='checkout' onClick={hide}>Check Out</button>
+  )
+}
+
+function hide() {
+  document.getElementById('checkout').className = 'hidden'
+  document.getElementById('checkout').classList.add('hidden')
+  document.getElementId("order").className = "hidden"
+}
 function Counter() {
   const [toaster, setToaster] = useState(0);
   const [fan, setFan] = useState(0);
@@ -20,6 +36,7 @@ function Counter() {
   const [mug, setMug] = useState(0);
   return (
   <div className='counter'>
+  <h1>Cart: </h1>
   <p>Add toaster to cart {toaster}</p>
   <button onClick={()=>{setToaster(toaster+1)}}>+</button>
   <button onClick={()=>{if(toaster>=1)setToaster(toaster-1)}}>-</button>
@@ -239,3 +256,5 @@ let validate = function(){
   }
   return val;
 }
+
+
