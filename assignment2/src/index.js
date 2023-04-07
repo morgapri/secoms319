@@ -6,12 +6,21 @@ import {Products} from './Products'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div id='order'>
+  <div>
+    <div id = 'order'>
     <DisplayItems />
     <CheckOut/>
+    </div>
+    
+    <div id = 'return' className='hidden'>
+    <Return/>
+    </div>
+    
+    
     
     
   </div>
+  
 );
 
 
@@ -22,18 +31,36 @@ function CheckOut() {
   return (
 
   <button id='checkout' onClick={hide}>Check Out</button>
+  
   )
+}
+
+function Return() {
+  return (
+    <button onClick ={reveal}>Return</button>
+  )
+  
+}
+
+function reveal() {
+  document.getElementById('checkout').classList.remove('hidden')
+  
+  
+ 
+  document.getElementById('container').classList.remove('container')
+  document.getElementById('container').classList.add('hidden')
+  document.getElementById('return').classList.add('hidden')
+  document.getElementById('order-form').classList.remove('hidden')
 }
 
 function hide() {
   document.getElementById('checkout').className = 'hidden'
   document.getElementById('checkout').classList.add('hidden')
+  document.getElementById('order-form').classList.add('hidden')
   
-  
-  var button_class = document.getElementById('checkout').className
-  document.getElementById('order').classList.add('hidden')
   document.getElementById('container').classList.add('container')
   document.getElementById('container').classList.remove('hidden')
+  document.getElementById('return').classList.remove('hidden')
 
   //document.getElementById('order').innerHTML = '<div id="order" className="hidden"'
   
@@ -127,6 +154,7 @@ function DisplayItems(){
     }
 
   return <div>
+    <div id = 'order-form'>
     <div class="search">
       <input type="search" value={query} onChange={handleChange} />
     </div>
@@ -140,6 +168,7 @@ function DisplayItems(){
           <button type="button" variant="light" onClick={() => addToCart(product)}>+</button>
       </div>
     ))}
+    </div>
     <p>Total: ${cartTotal.toFixed(2)}</p>
     <div>{cartItems}</div>
   </div>
@@ -229,6 +258,7 @@ const alert = (message, type) => {
         form.addEventListener('submit', event => {
 
             //if (!form.checkValidity()) {
+            
             
             if (!validate()) {
             
