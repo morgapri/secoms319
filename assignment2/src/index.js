@@ -8,11 +8,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div id='order'>
     <DisplayItems />
-    <Counter/>
     <CheckOut/>
+    
     
   </div>
 );
+
+
+
 
 function CheckOut() {
   
@@ -26,8 +29,15 @@ function hide() {
   document.getElementById('checkout').className = 'hidden'
   document.getElementById('checkout').classList.add('hidden')
   
+  
   var button_class = document.getElementById('checkout').className
-  document.getElementById('order').innerHTML = '<div id="order" className="hidden"'
+  document.getElementById('order').classList.add('hidden')
+  document.getElementById('container').classList.add('container')
+  document.getElementById('container').classList.remove('hidden')
+
+  //document.getElementById('order').innerHTML = '<div id="order" className="hidden"'
+  
+  
 }
 function Counter() {
   const [toaster, setToaster] = useState(0);
@@ -72,7 +82,38 @@ function Counter() {
 function DisplayItems(){
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState('');
+  const[cart, setCart] = useState([])
+  const[cartTotal, setCartTotal] = useState(0)
 
+  useEffect(() => {
+      total();
+  }, [cart])
+  const addToCart = (el) => {
+      setCart([...cart, el])
+  }
+  const total = () => {
+      let totalVal = 0;
+      for(let i = 0; i < cart.length; i++)
+      {
+          totalVal+=cart[i].price;
+      }
+      setCartTotal(totalVal);
+  }
+
+  const removeFromCart = (el) =>
+  {
+      let hardCopy = [...cart];
+      hardCopy = hardCopy.filter((cartItem) => cartItem.id != el.id);
+      setCart(hardCopy);
+  }
+
+  const cartItems = cart.map((el) => (
+      <div key={el.id}>
+          <img class = "img-fluid" src = {el.image} width={100}/>
+          {el.title}
+          ${el.price}
+      </div>
+  ))
 
 
   const handleChange = (e) => {
@@ -95,8 +136,12 @@ function DisplayItems(){
         <h3>{product.title}</h3>
         <p class="price">{product.price}</p>
         <p>{product.description}</p>
+        <button type="button" onClick={() => removeFromCart(product)}>-</button>{" "}
+          <button type="button" variant="light" onClick={() => addToCart(product)}>+</button>
       </div>
     ))}
+    <p>Total: ${cartTotal.toFixed(2)}</p>
+    <div>{cartItems}</div>
   </div>
 }
 
