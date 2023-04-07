@@ -25,7 +25,9 @@ function CheckOut() {
 function hide() {
   document.getElementById('checkout').className = 'hidden'
   document.getElementById('checkout').classList.add('hidden')
-  document.getElementId("order").className = "hidden"
+  
+  var button_class = document.getElementById('checkout').className
+  document.getElementById('order').innerHTML = '<div id="order" className="hidden"'
 }
 function Counter() {
   const [toaster, setToaster] = useState(0);
@@ -34,6 +36,8 @@ function Counter() {
   const [couch, setCouch] = useState(0);
   const [flowers, setFlowers] = useState(0);
   const [mug, setMug] = useState(0);
+    let totalVal = toaster*19.99 +fan*15.99 +eggs*2.99 +couch*699.99 +flowers*10.99 +mug*16.99;
+
   return (
   <div className='counter'>
   <h1>Cart: </h1>
@@ -59,6 +63,8 @@ function Counter() {
   <br></br>
   <br></br>
   
+  <p>Total: ${totalVal.toFixed(2)}</p>
+
   </div>
   );
   }
