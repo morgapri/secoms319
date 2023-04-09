@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-left: 15px;
 }
 
 code {
@@ -14,4 +15,28 @@ code {
 
 .hidden {
   display: none;
+}
+
+.price{
+  color: green;
+}
+
+.search{
+  margin: 10px;
+}
+
+img {
+  max-width: 200px;
+  max-height: 300px;
+  margin: 20px;
+}
+
+button{
+  margin-bottom: 20px; 
+}
+
+.gap{
+  border-color: gray;
+  border-radius: 1px;
+  border-style: ridge;
 }

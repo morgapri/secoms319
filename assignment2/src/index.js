@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {useState, useEffect} from "react";
 import './index.css';
-import {Products} from './Products'
+import Products from './Products.json'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,16 +15,9 @@ root.render(
     <div id = 'return' className='hidden'>
     <Return/>
     </div>
-    
-    
-    
-    
   </div>
   
 );
-
-
-
 
 function CheckOut() {
   
@@ -44,9 +37,6 @@ function Return() {
 
 function reveal() {
   document.getElementById('checkout').classList.remove('hidden')
-  
-  
- 
   document.getElementById('container').classList.remove('container')
   document.getElementById('container').classList.add('hidden')
   document.getElementById('return').classList.add('hidden')
@@ -62,86 +52,83 @@ function hide() {
   document.getElementById('container').classList.remove('hidden')
   document.getElementById('return').classList.remove('hidden')
 
-  //document.getElementById('order').innerHTML = '<div id="order" className="hidden"'
-  
-  
+  //document.getElementById('order').innerHTML = '<div id="order" className="hidden"' 
 }
-function Counter() {
-  const [toaster, setToaster] = useState(0);
-  const [fan, setFan] = useState(0);
-  const [eggs, setEggs] = useState(0);
-  const [couch, setCouch] = useState(0);
-  const [flowers, setFlowers] = useState(0);
-  const [mug, setMug] = useState(0);
-    let totalVal = toaster*19.99 +fan*15.99 +eggs*2.99 +couch*699.99 +flowers*10.99 +mug*16.99;
-
-  return (
-  <div className='counter'>
-  <h1>Cart: </h1>
-  <p>Add toaster to cart {toaster}</p>
-  <button onClick={()=>{setToaster(toaster+1)}}>+</button>
-  <button onClick={()=>{if(toaster>=1)setToaster(toaster-1)}}>-</button>
-  <p>Add fan to cart {fan}</p>
-  <button onClick={()=>{setFan(fan+1)}}>+</button>
-  <button onClick={()=>{if(fan>=1)setFan(fan-1)}}>-</button>
-  <p>Add eggs to cart {eggs}</p>
-  <button onClick={()=>{setEggs(eggs+1)}}>+</button>
-  <button onClick={()=>{if(eggs>=1)setEggs(eggs-1)}}>-</button>
-  <p>Add couch to cart {couch}</p>
-  <button onClick={()=>{setCouch(couch+1)}}>+</button>
-  <button onClick={()=>{if(couch>=1)setCouch(couch-1)}}>-</button>
-  <p>Add flowers to cart {flowers}</p>
-  <button onClick={()=>{setFlowers(flowers+1)}}>+</button>
-  <button onClick={()=>{if(flowers>=1)setFlowers(flowers-1)}}>-</button>
-  <p>Add mug to cart {mug}</p>
-  <button onClick={()=>{setMug(mug+1)}}>+</button>
-  <button onClick={()=>{if(mug >= 1)setMug(mug-1)}}>-</button>
-  <br></br>
-  <br></br>
-  <br></br>
-  
-  <p>Total: ${totalVal.toFixed(2)}</p>
-
-  </div>
-  );
-  }
 
 function DisplayItems(){
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState('');
-  const[cart, setCart] = useState([])
-  const[cartTotal, setCartTotal] = useState(0)
+  const[cart, setCart] = useState([]);
+  const[cartTotal, setCartTotal] = useState(0);
+  let tax = cartTotal.toFixed(2) - (cartTotal.toFixed(2) / 1.1);
 
   useEffect(() => {
       total();
   }, [cart])
+
   const addToCart = (el) => {
+    if(el.amount == 0){
       setCart([...cart, el])
+      {el.amount++}
+    }
+    else{
+      let id;
+      for(let j = 0; j < cart.length; j++){
+        if(cart[j].id == el.id){
+          id = j;
+        }
+      }
+      let hardCopy = [...cart];
+      hardCopy[id].amount = el.amount++;
+      {el.amount++}
+      setCart(hardCopy)
+    }
   }
+
   const total = () => {
       let totalVal = 0;
+      let tax = 1.1;
       for(let i = 0; i < cart.length; i++)
       {
-          totalVal+=cart[i].price;
+          totalVal+=cart[i].price*cart[i].amount;
       }
+      totalVal = totalVal * tax;
       setCartTotal(totalVal);
   }
 
   const removeFromCart = (el) =>
   {
-      let hardCopy = [...cart];
+    let id;
+    let hardCopy;
+      for(let j = 0; j < cart.length; j++){
+        if(cart[j].id == el.id){
+          id = j;
+        }
+      }
+
+    if(el.amount > 1){
+      hardCopy = [...cart];
+      hardCopy[id].amount = el.amount--;
+      setCart(hardCopy)
+    }
+    else{
+      hardCopy = [...cart];
       hardCopy = hardCopy.filter((cartItem) => cartItem.id != el.id);
       setCart(hardCopy);
+    }
+    if(el.amount > 0){
+      {el.amount--}
+    }
   }
 
   const cartItems = cart.map((el) => (
       <div key={el.id}>
           <img class = "img-fluid" src = {el.image} width={100}/>
-          {el.title}
-          ${el.price}
+          {el.title}:
+           ${el.price}:
+          x{el.amount}
       </div>
   ))
-
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -151,52 +138,54 @@ function DisplayItems(){
     return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
     });
     setProductsCategory(results);
-    }
+  }
+
+  const clear = () => {
+    setProductsCategory(Products);
+  }
 
   return <div>
     <div id = 'order-form'>
     <div class="search">
-      <input type="search" value={query} onChange={handleChange} />
+      <label>Search🔎 </label>
+      <input class="search" value={query} onChange={handleChange} />
+      <button type="button" value={query} onClick={clear}>Clear</button>
     </div>
     {ProductsCategory.map((product, index) => (
       <div key={index} >
         <img alt="Product Image" src={product.image} />
         <h3>{product.title}</h3>
-        <p class="price">{product.price}</p>
+        <p class="price">${product.price}</p>
         <p>{product.description}</p>
         <button type="button" onClick={() => removeFromCart(product)}>-</button>{" "}
-          <button type="button" variant="light" onClick={() => addToCart(product)}>+</button>
+        <button type="button" variant="light" onClick={() => addToCart(product)}>+</button>
+        <p>Amount: {product.amount}</p>
+        <div class="gap"></div>
       </div>
     ))}
     </div>
-    <p>Total: ${cartTotal.toFixed(2)}</p>
+    <h3>Cart</h3>
     <div>{cartItems}</div>
+    <p>Tax (10%): ${tax.toFixed(2)}</p>
+    <p>Total: ${cartTotal.toFixed(2)}</p>
+    
   </div>
 }
 
 //order form
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
 const form = document.getElementById('checkout-form')
-
 const inputCard = document.querySelector('#inputCard')
-
 const alertTrigger = document.getElementById('submit-btn')
-
 const summaryCard = document.querySelector('.card')
-
 const summaryList = document.querySelector('.card > ul')
-
 var order = { name: '',
-
-email: '',
-
-card: '' }
+  email: '',
+  card: '' }
 
 const alert = (message, type) => {
-
     const wrapper = document.createElement('div')
-    
+
     wrapper.innerHTML = [
     
     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
