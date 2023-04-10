@@ -9,7 +9,7 @@ root.render(
   <div>
     <div id = 'order'>
     <DisplayItems />
-    <CheckOut/>
+    
     </div>
     
     <div id = 'return' className='hidden'>
@@ -19,14 +19,13 @@ root.render(
   
 );
 
-function CheckOut() {
+/*function CheckOut() {
   
   return (
-
-  <button id='checkout' onClick={hide}>Check Out</button>
+  <button id='checkout' onClick={() => {hide();}}>Check Out</button>
   
   )
-}
+}*/
 
 function Return() {
   return (
@@ -140,11 +139,11 @@ function DisplayItems(){
     setProductsCategory(results);
   }
 
-  const clear = () => {
+  function clear() {
     setProductsCategory(Products);
   }
   
-
+  console.log(document.getElementById("checkout"));
   return <div>
     <div id = 'order-form'>
     <div class="search">
@@ -169,6 +168,7 @@ function DisplayItems(){
     <div>{cartItems}</div>
     <p>Tax (10%): ${tax.toFixed(2)}</p>
     <p>Total: ${cartTotal.toFixed(2)}</p>
+    <button id='checkout' onClick={() => {hide();clear();}}>Check Out</button>
   </div>
   
 }
