@@ -84,7 +84,7 @@ app.put("/update", async (req, res) => {
         const messageResponse = {
             message: `Product ${req.body._id} updated correctly`,
             };
-        res.send(messageResponse)
+        res.send(JSON.stringify(messageResponse));
     }
     catch(err){
         console.log("Error while updating");
