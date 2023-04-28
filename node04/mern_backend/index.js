@@ -75,21 +75,21 @@ app.post("/insert", async (req, res) => {
                 console.log("Error while deleting :" + p_id + " " + err);
                 }
                 });
-app.put("/update", async (req, res) => {
-    console.log("Update:", req.body);
-    try{
-        const query = {_id: req.body._id};
-        const oneProduct = Product.findOne(query);
-        oneProduct.updateOne({price: req.body.new_price});
-        const messageResponse = {
-            message: `Product ${req.body._id} updated correctly`,
-            };
-        res.send(JSON.stringify(messageResponse));
-    }
-    catch(err){
-        console.log("Error while updating");
-    }
-})
+// app.put("/update", async (req, res) => {
+//     console.log("Update:", req.body);
+//     try{
+//         const query = {_id: req.body._id};
+//         const oneProduct = Product.findOne(query);
+//         oneProduct.updateOne({price: req.params.new_price});
+//         const messageResponse = {
+//             message: `Product ${req.body._id} updated correctly`,
+//             };
+//         res.send(JSON.stringify(messageResponse));
+//     }
+//     catch(err){
+//         console.log("Error while updating");
+//     }
+// })
 
 app.listen(port, () => {
 console.log(`App listening at http://%s:%s`, host, port);
