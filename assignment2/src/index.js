@@ -9,7 +9,7 @@ root.render(
   <div>
     <div id = 'order'>
     <DisplayItems />
-    <CheckOut/>
+    
     </div>
     
     <div id = 'return' className='hidden'>
@@ -19,14 +19,13 @@ root.render(
   
 );
 
-function CheckOut() {
+/*function CheckOut() {
   
   return (
-
-  <button id='checkout' onClick={hide}>Check Out</button>
+  <button id='checkout' onClick={() => {hide();}}>Check Out</button>
   
   )
-}
+}*/
 
 function Return() {
   return (
@@ -140,10 +139,11 @@ function DisplayItems(){
     setProductsCategory(results);
   }
 
-  const clear = () => {
+  function clear() {
     setProductsCategory(Products);
   }
-
+  
+  console.log(document.getElementById("checkout"));
   return <div>
     <div id = 'order-form'>
     <div class="search">
@@ -168,9 +168,11 @@ function DisplayItems(){
     <div>{cartItems}</div>
     <p>Tax (10%): ${tax.toFixed(2)}</p>
     <p>Total: ${cartTotal.toFixed(2)}</p>
-    
+    <button id='checkout' onClick={() => {hide();clear();}}>Check Out</button>
   </div>
+  
 }
+
 
 //order form
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
@@ -182,6 +184,27 @@ const summaryList = document.querySelector('.card > ul')
 var order = { name: '',
   email: '',
   card: '' }
+
+const state = document.getElementById('inputState');
+let addOption = function(){
+  let arr = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
+    "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+    "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", 
+    "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+    "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
+    "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+    "Vermont", "Virginia", "Washington", "West Virginia", "Wisonsin", "Wyoming"];
+  let option;
+  let text;
+  for(const name of arr){
+    option = document.createElement('option');
+    text = document.createTextNode(name);
+    option.appendChild(text);
+    state.appendChild(option);
+  }
+}
+
+addOption();
 
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
@@ -265,14 +288,15 @@ const alert = (message, type) => {
             
             }, false )
 
-
-
 let validate = function(){
   let val = true
   let email = document.getElementById('inputEmail4')
   let name = document.getElementById('inputName')
   let card = document.getElementById('inputCard')
   let zip = document.getElementById('inputZip')
+  let address = document.getElementById('inputAddress');
+  let city = document.getElementById('inputCity');
+  let state = document.getElementById('inputState');
   
   if (!email.value.match(
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -312,6 +336,30 @@ let validate = function(){
   }
   else{
     zip.setAttribute("class", "form-control is-valid")
+  }
+  if (address.value.length == 0)
+  {
+    address.setAttribute("class","form-control is-invalid")
+    val = false
+  }
+  else{
+    address.setAttribute("class", "form-control is-valid");
+  }
+  if (city.value.length == 0)
+  {
+    city.setAttribute("class","form-control is-invalid")
+    val = false
+  }
+  else{
+    city.setAttribute("class", "form-control is-valid");
+  }
+  if (state.value == "Choose...")
+  {
+    state.setAttribute("class","form-control is-invalid")
+    val = false
+  }
+  else{
+    state.setAttribute("class", "form-control is-valid");
   }
 
   if (val){
