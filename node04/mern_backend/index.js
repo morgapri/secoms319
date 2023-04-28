@@ -89,6 +89,7 @@ app.post("/insert", async (req, res) => {
 //     catch(err){
 //         console.log("Error while updating");
 //     }
+   
 // })
 
 app.listen(port, () => {
