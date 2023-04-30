@@ -283,6 +283,16 @@ function App() {
         {product[index].rating.count} <br />
         </div>
       </div> */}
+      <div class="container" id="footer">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li></li>
+          </ul>
+          <p class="text-center text-body-secondary">Comp Sci/SE 319 Section 2 Abraham Aldaco<br />
+          4/31/2022<br />
+          This is the team 26 project for Assignment 3. We craeted a MERN application that is similar to a shopping website. We added bootstrap for style.</p>
+        </footer>
+      </div>
     </div>
   )}; // App end
 
