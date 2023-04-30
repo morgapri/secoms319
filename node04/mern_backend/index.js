@@ -77,40 +77,7 @@ app.delete("/delete", async (req, res) => {
         console.log("Error while deleting :" + p_id + " " + err);
     }
 });
-// app.put("/:id", async (req, res) => {
-//     console.log("Update:", req.body);
-//     try{
-//         const query = {_id: req.body._id};
-//         const oneProduct = await Product.findOne(query);
-//         oneProduct.updateOne({_id: req.body._id}, {price: req.body.new_price});
-//         const messageResponse = {
-//             message: `Product ${req.body.new_price} updated correctly`,
-//             };
-//         res.send(JSON.stringify(messageResponse));
-//     }
-//     catch(err){
-//         console.log("Error while updating");
-//     }
-//   
-//})
 
-// app.put("/:id", async (req, res) => {
-//     console.log("Update:", req.body);
-//     try{
-//         const query = {_id: req.params._id};
-//         const oneProduct = await Product.findOne(query);
-//         oneProduct.updateOne({_id: req.params._id}, {price: req.body.price});
-//         const messageResponse = {
-//             message: `Product ${req.params._id} updated correctly`,
-//             };
-//         res.send(JSON.stringify(messageResponse));
-//     }
-//     catch(err){
-//         console.log("Error while updating");
-//         res.status(500).send({ message: "Error while updating product" });
-//     }
-   
-// });
 app.put("/update", async (req, res) => {
     console.log("Update :", req.body._id);
     console.log("New Price :", req.body.price);
