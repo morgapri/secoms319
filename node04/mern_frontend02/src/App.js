@@ -200,6 +200,28 @@ function App() {
       
   return (
     <div>
+      <div id="navbar" class="container-fluid">
+        <nav class="navbar navbar-expand navbar-dark bg-fark">
+          <h2>Catalog of Products</h2>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <button onClick={() => getAllProducts()}>Show All products</button>
+              </li>
+              <li class="nav-item">
+                <button>Add</button>
+              </li>
+              <li class="nav-item">
+                <button>Delete</button>
+              </li>
+              <li class="nav-item">
+                <button>Update</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
       <h1>Catalog of Products</h1>
       <button onClick={() => getAllProducts()}>Show All products</button>
       <input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
@@ -211,7 +233,7 @@ function App() {
       {viewer2 && <div>Product: {showOneItem}</div>}
       <hr></hr>
 
-      <div>
+      <div id="addProduct">
         <h3>Add a new product :</h3>
         <form action="">
           <input type="number" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} />
@@ -228,7 +250,7 @@ function App() {
         </form>
       </div>
 
-      <div>
+      <div id="deleteProduct">
         <h3>Delete one product:</h3>
         <input type="checkbox" id="acceptdelete" name="acceptdelete" checked={checked4}
         onChange={(e) => setChecked4(!checked4)} />
@@ -289,7 +311,7 @@ function App() {
           </ul>
           <p class="text-center text-body-secondary">Comp Sci/SE 319 Section 2 Abraham Aldaco<br />
           4/31/2022<br />
-          This is the team 26 project for Assignment 3. We craeted a MERN application that is similar to a shopping website. We added bootstrap for style.</p>
+          This is the team 26 project for Assignment 3. We created a MERN application that is similar to a shopping website. We added bootstrap for style.</p>
         </footer>
       </div>
     </div>
