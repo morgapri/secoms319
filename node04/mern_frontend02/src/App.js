@@ -248,17 +248,17 @@ function App() {
       </div>
 
       <div id="list">
+        <hr></hr>
         <input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
-        <h1>Show all available Products.</h1>
-        <hr></hr>
-        {viewer1 && <div>Products {showAllItems}</div>}
-        <hr></hr>
         <h1>Show one Product by Id:</h1>
         {viewer2 && <div>Product: {showOneItem}</div>}
         <hr></hr>
+        <h1>Show all available Products.</h1>
+        {viewer1 && <div>Products {showAllItems}</div>}
       </div>
 
       <div id="addProduct">
+        <hr></hr>
         <h3>Add a new product :</h3>
         <form action="">
           <input type="number" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} />
@@ -276,6 +276,7 @@ function App() {
       </div>
 
       <div id="deleteProduct">
+        <hr></hr>
         <h3>Delete one product:</h3>
         <input type="checkbox" id="acceptdelete" name="acceptdelete" checked={checked4}
         onChange={(e) => setChecked4(!checked4)} />
@@ -329,6 +330,7 @@ function App() {
         </div>
       </div> */}
       <div class="container" id="footer">
+        <hr></hr>
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li>Paige Schneider: schnpa@iastate.edu</li>
