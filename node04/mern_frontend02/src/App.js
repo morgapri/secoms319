@@ -7,9 +7,6 @@ function App() {
   const [viewer2, setViewer2] = useState(false);
   const [checked4, setChecked4] = useState(false);
   const [index, setIndex] = useState(0);
-  const[viewer4, setViewer4] = useState(false);
-  const[new_price, setPrice] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState({});
   const [checked5, setChecked5] = useState(false);
   const [index2, setIndex2] = useState(0);
   const [addNewPrice, setAddNewPrice] = useState(0);
@@ -52,8 +49,6 @@ function App() {
     rating: { rate: 0.0, count: 0 },
   });
         
-  
-
   function getAllProducts() {
     fetch("http://localhost:4000/")
     .then((response) => response.json())
@@ -130,8 +125,6 @@ function App() {
     });
   }
 
-  
-
   function getOneByOneProductNext() {
     if (product.length > 0) {
       if (index === product.length - 1) setIndex(0);
@@ -195,7 +188,6 @@ function App() {
     document.getElementById('updateProduct').setAttribute('style', 'display: initial')
   }
     
-
 //the new stuff
 function getOneByOneProductNext2() {
   if (product.length > 0) {
@@ -309,11 +301,12 @@ function handleUpdateChange(evt){
           {product[index].rating.count} <br />
           </div>
         )}
+        <hr></hr>
       </div>
-          <div id="updateProduct">
-            <h3>Edit one product:</h3>
-            <input type="checkbox" id="acceptupdate" name="acceptdelete" checked={checked5}
-          onChange={(e) => setChecked5(!checked5)} />
+
+      <div id="updateProduct">
+        <h3>Edit one product:</h3>
+        <input type="checkbox" id="acceptupdate" name="acceptdelete" checked={checked5} onChange={(e) => setChecked5(!checked5)} />
         <button onClick={() => getOneByOneProductPrev2()}>Prev</button>
         <button onClick={() => getOneByOneProductNext2()}>Next</button>
         {checked5 && (
@@ -331,49 +324,8 @@ function handleUpdateChange(evt){
             </div>
           </div>
         )}
-            {/* <form onSubmit={updateProductPrice}>
-              <label>ID:
-                <input id="updateID" type="number" value={selectedProduct._id} onChange={(e) => setSelectedProduct(e.target.value)}></input>
-                </label>
-              <label>New Price:
-                <input id="update" type="number" value={new_price} onChange={(e) => setPrice(e.target.value)}></input>
-                </label>
-              <button type="submit">Update</button>
-            </form> */}
-          </div>
-      {/* <div>
-        <h3>Edit one product:</h3>
-        <button onClick={() => getOneByOneProductPrev()}>Prev</button>
-        <button onClick={() => getOneByOneProductNext()}>Next</button>
-        <div>
-            <h2>Update Price</h2>
-            <form onSubmit={updateProductPrice}>
-              <label>
-                New Price:
-                <input type="number" value={new_price} onChange={(e) => setPrice(e.target.value)} />
-              </label>
-              <br />
-              <button type="submit">Update</button>
-            </form>
-          </div>
-        { <form action="">
-
-
-        <input type="number" placeholder="price?" name="new_price" id="new_price" value={new_price} />
-
-        <button type="submit" onClick={handleOnSubmit}>
-        submit</button>
-        </form> }
-        <div key={product[index]._id}>
-        <img src={product[index].image} width={30} /> <br />
-        Id:{product[index]._id} <br />
-        Title: {product[index].title} <br />
-        Category: {product[index].category} <br />
-        Price: {product[index].price} <br />
-        Rate :{product[index].rating.rate} and Count:
-        {product[index].rating.count} <br />
-        </div>
-      </div> */}
+      </div>
+      
       <div class="container" id="footer">
         <hr></hr>
         <footer class="py-3 my-4">
