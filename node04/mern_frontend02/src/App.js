@@ -228,7 +228,7 @@ function App() {
     
 
 //the new stuff
-function getOneByOneProductNextU() {
+function getOneByOneProductNext2() {
   if (product.length > 0) {
     if (index2 === product.length - 1) setIndex2(0);
     else setIndex2(index2 + 1);
@@ -237,7 +237,7 @@ function getOneByOneProductNextU() {
   }
 }
 
-function getOneByOneProductPrevU() {
+function getOneByOneProductPrev2() {
   if (product.length > 0) {
     if (index2 === 0) setIndex2(product.length - 1);
     else setIndex2(index2 - 1);
@@ -345,8 +345,8 @@ function handleUpdateChange(evt){
             <h3>Edit one product:</h3>
             <input type="checkbox" id="acceptupdate" name="acceptdelete" checked={checked5}
           onChange={(e) => setChecked5(!checked5)} />
-        <button onClick={() => getOneByOneProductPrevU()}>Prev</button>
-        <button onClick={() => getOneByOneProductNextU()}>Next</button>
+        <button onClick={() => getOneByOneProductPrev2()}>Prev</button>
+        <button onClick={() => getOneByOneProductNext2()}>Next</button>
         {checked5 && (
           <div>
             <input type="number" placeholder="New Price" name="updated_price" value={addNewPrice} onChange={handleUpdateChange} />
