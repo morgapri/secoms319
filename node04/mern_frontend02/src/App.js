@@ -334,6 +334,7 @@ function App() {
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li>Paige Schneider: schnpa@iastate.edu</li>
+            <br />
             <li>Morgan Prieskorn: mopriesk@iastate.edu</li>
           </ul>
           <p class="text-center text-body-secondary">Comp Sci/SE 319 Section 2 Abraham Aldaco<br />
