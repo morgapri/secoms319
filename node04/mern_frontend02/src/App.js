@@ -24,8 +24,8 @@ function App() {
     <img src={el.image} width={30} /> <br />
     Title: {el.title} <br />
     Category: {el.category} <br />
-    Price: {el.price} <br />
-    Rate :{el.rating.rate} and Count:{el.rating.count} <br />
+    Price: ${el.price} <br />
+    Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
   ));
 
@@ -34,8 +34,8 @@ function App() {
     <img src={el.image} width={30} /> <br />
     Title: {el.title} <br />
     Category: {el.category} <br />
-    Price: {el.price} <br />
-    Rate :{el.rating.rate} and Count:{el.rating.count} <br />
+    Price: ${el.price} <br />
+    Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
   ));
 
@@ -198,7 +198,6 @@ function App() {
     setChecked4(!checked4);
   }
       
-
   return (
     <div>
       <h1>Catalog of Products</h1>
@@ -249,7 +248,6 @@ function App() {
         )}
       </div>
 
-
       {/*<div>
         <h3>Edit one product:</h3>
         <button onClick={() => getOneByOneProductPrev()}>Prev</button>
@@ -286,7 +284,8 @@ function App() {
       <div class="container" id="footer">
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li></li>
+            <li>Paige Schneider: schnpa@iastate.edu</li>
+            <li>Morgan Prieskorn: mopriesk@iastate.edu</li>
           </ul>
           <p class="text-center text-body-secondary">Comp Sci/SE 319 Section 2 Abraham Aldaco<br />
           4/31/2022<br />
