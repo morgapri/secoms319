@@ -52,26 +52,7 @@ function App() {
     rating: { rate: 0.0, count: 0 },
   });
         
-  function updateProductPrice(e) { //new
-    e.preventDefault();
-    const url = "http://localhost:4000/" + selectedProduct._id;
-    const options = {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ price: new_price }),
-    };
-    fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Product price updated successfully");
-      console.log(data);
-      setViewer4(false);
-      setPrice(0);
-    })
-    .catch((error) => {
-      console.error("Error updating product price", error);
-    });
-  }
+  
 
   function getAllProducts() {
     fetch("http://localhost:4000/")
@@ -149,19 +130,7 @@ function App() {
     });
   }
 
-  // function update(id) {
-  //   id.preventDefault();
-  //   const newprice = document.getElementById("new_price").value;
-  //   fetch("http://localhost:4000/:id", {
-  //     method: "PUT",
-  //     headers: {"Content-Type": "application/json"},
-  //     body: JSON.stringify({_id: newprice}),
-  //   })
-  //   .then((response => response.json))
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  // }
+  
 
   function getOneByOneProductNext() {
     if (product.length > 0) {
@@ -205,25 +174,25 @@ function App() {
     document.getElementById('list').setAttribute('style', 'display: initial')
     document.getElementById('addProduct').setAttribute('style', 'display: none')
     document.getElementById('deleteProduct').setAttribute('style', 'display: none')
-    //document.getElementById('updateProduct').setAttribute('style', 'display: none')
+    document.getElementById('updateProduct').setAttribute('style', 'display: none')
   }
   function revealAdd(){
     document.getElementById('list').setAttribute('style', 'display: none')
     document.getElementById('addProduct').setAttribute('style', 'display: initial')
     document.getElementById('deleteProduct').setAttribute('style', 'display: none')
-    //document.getElementById('updateProduct').setAttribute('style', 'display: none')
+    document.getElementById('updateProduct').setAttribute('style', 'display: none')
   }
   function revealDelete(){
     document.getElementById('list').setAttribute('style', 'display: none')
     document.getElementById('addProduct').setAttribute('style', 'display: none')
     document.getElementById('deleteProduct').setAttribute('style', 'display: initial')
-    //document.getElementById('updateProduct').setAttribute('style', 'display: none')
+    document.getElementById('updateProduct').setAttribute('style', 'display: none')
   }
   function revealUpdate(){
     document.getElementById('list').setAttribute('style', 'display: none')
     document.getElementById('addProduct').setAttribute('style', 'display: none')
     document.getElementById('deleteProduct').setAttribute('style', 'display: none')
-    //document.getElementById('updateProduct').setAttribute('style', 'display: initial')
+    document.getElementById('updateProduct').setAttribute('style', 'display: initial')
   }
     
 
@@ -341,7 +310,7 @@ function handleUpdateChange(evt){
           </div>
         )}
       </div>
-          <div>
+          <div id="updateProduct">
             <h3>Edit one product:</h3>
             <input type="checkbox" id="acceptupdate" name="acceptdelete" checked={checked5}
           onChange={(e) => setChecked5(!checked5)} />
