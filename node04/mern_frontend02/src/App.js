@@ -197,6 +197,31 @@ function App() {
     });
     setChecked4(!checked4);
   }
+
+  function revealProducts(){
+    document.getElementById('list').setAttribute('style', 'display: initial')
+    document.getElementById('addProduct').setAttribute('style', 'display: none')
+    document.getElementById('deleteProduct').setAttribute('style', 'display: none')
+    //document.getElementById('updateProduct').setAttribute('style', 'display: none')
+  }
+  function revealAdd(){
+    document.getElementById('list').setAttribute('style', 'display: none')
+    document.getElementById('addProduct').setAttribute('style', 'display: initial')
+    document.getElementById('deleteProduct').setAttribute('style', 'display: none')
+    //document.getElementById('updateProduct').setAttribute('style', 'display: none')
+  }
+  function revealDelete(){
+    document.getElementById('list').setAttribute('style', 'display: none')
+    document.getElementById('addProduct').setAttribute('style', 'display: none')
+    document.getElementById('deleteProduct').setAttribute('style', 'display: initial')
+    //document.getElementById('updateProduct').setAttribute('style', 'display: none')
+  }
+  function revealUpdate(){
+    document.getElementById('list').setAttribute('style', 'display: none')
+    document.getElementById('addProduct').setAttribute('style', 'display: none')
+    document.getElementById('deleteProduct').setAttribute('style', 'display: none')
+    //document.getElementById('updateProduct').setAttribute('style', 'display: initial')
+  }
       
   return (
     <div>
@@ -206,32 +231,32 @@ function App() {
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <button onClick={() => getAllProducts()}>Show All products</button>
+                <button onClick={() => {getAllProducts();revealProducts();}}>Show All products</button>
               </li>
               <li class="nav-item">
-                <button>Add</button>
+                <button onClick={() => revealAdd()}>Add</button>
               </li>
               <li class="nav-item">
-                <button>Delete</button>
+                <button onClick={() => revealDelete()}>Delete</button>
               </li>
               <li class="nav-item">
-                <button>Update</button>
+                <button onClick={() => revealUpdate()}>Update</button>
               </li>
             </ul>
           </div>
         </nav>
       </div>
 
-      <h1>Catalog of Products</h1>
-      <button onClick={() => getAllProducts()}>Show All products</button>
-      <input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
-      <h1>Show all available Products.</h1>
-      <hr></hr>
-      {viewer1 && <div>Products {showAllItems}</div>}
-      <hr></hr>
-      <h1>Show one Product by Id:</h1>
-      {viewer2 && <div>Product: {showOneItem}</div>}
-      <hr></hr>
+      <div id="list">
+        <input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
+        <h1>Show all available Products.</h1>
+        <hr></hr>
+        {viewer1 && <div>Products {showAllItems}</div>}
+        <hr></hr>
+        <h1>Show one Product by Id:</h1>
+        {viewer2 && <div>Product: {showOneItem}</div>}
+        <hr></hr>
+      </div>
 
       <div id="addProduct">
         <h3>Add a new product :</h3>
