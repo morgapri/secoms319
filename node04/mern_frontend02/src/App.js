@@ -10,6 +10,9 @@ function App() {
   const[viewer4, setViewer4] = useState(false);
   const[new_price, setPrice] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState({});
+  const [checked5, setChecked5] = useState(false);
+  const [index2, setIndex2] = useState(0);
+  const [addNewPrice, setAddNewPrice] = useState(0);
 
   useEffect(() => {
     getAllProducts();
@@ -49,7 +52,7 @@ function App() {
     rating: { rate: 0.0, count: 0 },
   });
         
-  /*function updateProductPrice(e) { //new
+  function updateProductPrice(e) { //new
     e.preventDefault();
     const url = "http://localhost:4000/" + selectedProduct._id;
     const options = {
@@ -68,7 +71,7 @@ function App() {
     .catch((error) => {
       console.error("Error updating product price", error);
     });
-  }*/
+  }
 
   function getAllProducts() {
     fetch("http://localhost:4000/")
@@ -222,7 +225,50 @@ function App() {
     document.getElementById('deleteProduct').setAttribute('style', 'display: none')
     //document.getElementById('updateProduct').setAttribute('style', 'display: initial')
   }
-      
+    
+
+//the new stuff
+function getOneByOneProductNextU() {
+  if (product.length > 0) {
+    if (index2 === product.length - 1) setIndex2(0);
+    else setIndex2(index2 + 1);
+    if (product.length > 0) setChecked5(true);
+    else setChecked5(false);
+  }
+}
+
+function getOneByOneProductPrevU() {
+  if (product.length > 0) {
+    if (index2 === 0) setIndex2(product.length - 1);
+    else setIndex2(index2 - 1);
+    if (product.length > 0) setChecked5(true);
+    else setChecked5(false);
+  }
+}
+function updateOneProduct(updateid, new_price) {
+  console.log("Product to update :", updateid);
+  console.log("Value to update :", new_price);
+  fetch("http://localhost:4000/update/", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ _id: updateid , price: new_price}),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Updating the product's price completed : ", updateid);
+      console.log(data);
+      if (data) {
+        //const keys = Object.keys(data);
+        const value = Object.values(data);
+        alert(value);
+      }
+    });
+  setChecked5(!checked5);
+}
+function handleUpdateChange(evt){
+  setAddNewPrice(evt.target.value);
+}
+
   return (
     <div>
       <div id="navbar" class="container-fluid">
@@ -295,8 +341,38 @@ function App() {
           </div>
         )}
       </div>
-
-      {/*<div>
+          <div>
+            <h3>Edit one product:</h3>
+            <input type="checkbox" id="acceptupdate" name="acceptdelete" checked={checked5}
+          onChange={(e) => setChecked5(!checked5)} />
+        <button onClick={() => getOneByOneProductPrevU()}>Prev</button>
+        <button onClick={() => getOneByOneProductNextU()}>Next</button>
+        {checked5 && (
+          <div>
+            <input type="number" placeholder="New Price" name="updated_price" value={addNewPrice} onChange={handleUpdateChange} />
+            <button onClick={() => updateOneProduct(product[index2]._id, addNewPrice)}>Update</button>
+            <div key={product[index2]._id}>
+              <img src={product[index2].image} width={30} /> <br />
+              Id:{product[index2]._id} <br />
+              Title: {product[index2].title} <br />
+              Category: {product[index2].category} <br />
+              Price: {product[index2].price} <br />
+              Rate :{product[index2].rating.rate} and Count:
+              {product[index2].rating.count} <br />
+            </div>
+          </div>
+        )}
+            {/* <form onSubmit={updateProductPrice}>
+              <label>ID:
+                <input id="updateID" type="number" value={selectedProduct._id} onChange={(e) => setSelectedProduct(e.target.value)}></input>
+                </label>
+              <label>New Price:
+                <input id="update" type="number" value={new_price} onChange={(e) => setPrice(e.target.value)}></input>
+                </label>
+              <button type="submit">Update</button>
+            </form> */}
+          </div>
+      {/* <div>
         <h3>Edit one product:</h3>
         <button onClick={() => getOneByOneProductPrev()}>Prev</button>
         <button onClick={() => getOneByOneProductNext()}>Next</button>
