@@ -11,7 +11,7 @@ rate : {type: Number},
 count : {type: Number}
 }
 } ,
-{ collection: "fakestore_catalog" }
+{ collection: "final_catalog" }
 )
 const Product = mongoose.model('Product', ReactFormDataSchema)
 module.exports = Product
