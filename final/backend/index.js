@@ -26,6 +26,21 @@ console.log(allProducts);
 resp.send(allProducts);
 });
 
+app.put("/update", async (req, res) => {
+    console.log("Update :", req.body._id);
+    console.log("New Price :", req.body.price);
+
+    try{
+        const filter = { _id: `${req.body._id}` };
+        const updateDoc = { $set: { amount: `${req.body.amount + 1}`} };
+        await Product.updateOne(filter, updateDoc, null);
+        const messageResponse = {
+            message: `Product ${req.body_id} updated correctly`
+        };
+    } catch (err) {
+        console.log("Error while updating :" + p_id + " " + err);
+    }
+});
 
 app.listen(port, () => {
 console.log(`App listening at http://%s:%s`, host, port);
