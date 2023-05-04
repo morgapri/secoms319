@@ -13,10 +13,27 @@ const showAllItems = product.map((el) => (
   </div>
   ));
   
-//function at start show only home
-//function hide all but product list
+window.addEventListener('load', () => showHome());
+
+function showHome(){
+  document.getElementById('homepage').setAttribute('style', 'display: initial')
+  document.getElementById('productspage').setAttribute('style', 'display: none')
+  document.getElementById('cart').setAttribute('style', 'display: none')
+  document.getElementById('checkoutpage').setAttribute('style', 'display: none')
+}
+function  showProducts(){
+  document.getElementById('homepage').setAttribute('style', 'display: none')
+  document.getElementById('productspage').setAttribute('style', 'display: initial')
+  document.getElementById('cart').setAttribute('style', 'display: initial')
+  document.getElementById('checkoutpage').setAttribute('style', 'display: none')
+}
+function showCheckout(){
+  document.getElementById('homepage').setAttribute('style', 'display: none')
+  document.getElementById('productspage').setAttribute('style', 'display: none')
+  document.getElementById('cart').setAttribute('style', 'display: initial')
+  document.getElementById('checkoutpage').setAttribute('style', 'display: initial')
+}
 //functions to hide all but specific product clicked
-//function to show checkout
 
 function getAllProducts() {
   fetch("http://localhost:4000/")
@@ -34,10 +51,10 @@ return (
   <div>
     <div id="navbar" class="container-fluid">
         <nav class="navbar navbar-expand navbar-dark bg-fark">
-          <button id="home">Home</button>
-          <button id="products" onClick={() => getAllProducts()}>Products</button>
+          <button id="home" onClick={() => showHome()}>Home</button>
+          <button id="products" onClick={() => {getAllProducts(); showProducts();}}>Products</button>
           
-          <button id="checkout">Checkout</button>
+          <button id="checkout" onClick={() => showCheckout()}>Checkout</button>
         </nav>
     </div>
 
@@ -47,7 +64,7 @@ return (
         <p>personal info here</p>
         <hr></hr>
       </div>
-      <div id="products">
+      <div id="productspage">
         <h1>Catalog of Products</h1>
         
         <div id="productList">{viewer1 && <div>Products {showAllItems}</div>}</div>
@@ -56,7 +73,7 @@ return (
       <div id="cart">
 
       </div>
-      <div id="checkout">
+      <div id="checkoutpage">
 
       </div>
     </div>
