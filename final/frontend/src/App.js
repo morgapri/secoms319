@@ -13,6 +13,10 @@ const showAllItems = product.map((el) => (
   </div>
   ));
   
+//function at start show only home
+//function hide all but product list
+//functions to hide all but specific product clicked
+//function to show checkout
 
 function getAllProducts() {
   fetch("http://localhost:4000/")
