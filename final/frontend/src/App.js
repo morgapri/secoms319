@@ -19,19 +19,19 @@ function showHome(){
   document.getElementById('homepage').setAttribute('style', 'display: initial')
   document.getElementById('productspage').setAttribute('style', 'display: none')
   document.getElementById('cart').setAttribute('style', 'display: none')
-  document.getElementById('checkoutpage').setAttribute('style', 'display: none')
+  document.getElementById('form').setAttribute('style', 'display: none')
 }
 function  showProducts(){
   document.getElementById('homepage').setAttribute('style', 'display: none')
   document.getElementById('productspage').setAttribute('style', 'display: initial')
   document.getElementById('cart').setAttribute('style', 'display: initial')
-  document.getElementById('checkoutpage').setAttribute('style', 'display: none')
+  document.getElementById('form').setAttribute('style', 'display: none')
 }
 function showCheckout(){
   document.getElementById('homepage').setAttribute('style', 'display: none')
   document.getElementById('productspage').setAttribute('style', 'display: none')
   document.getElementById('cart').setAttribute('style', 'display: initial')
-  document.getElementById('checkoutpage').setAttribute('style', 'display: initial')
+  document.getElementById('form').setAttribute('style', 'display: initial')
 }
 //functions to hide all but specific product clicked
 
@@ -74,7 +74,7 @@ return (
 
       </div>
       <div id="checkoutpage">
-
+        {/*data for order form in index.js file in frontend, access with id form */}
       </div>
     </div>
   </div>
