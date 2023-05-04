@@ -5,7 +5,7 @@ const [viewer1, setViewer1] = useState(false);
 
 const showAllItems = product.map((el) => (
   <div key={el._id}>
-  <img src={el.image} width={30} /> <br />
+  <img src={el.image} width={40} /> <br />
   Title: {el.title} <br />
   Category: {el.category} <br />
   Price: {el.price} <br />
