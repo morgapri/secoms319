@@ -36,8 +36,13 @@ return (
           <button id="checkout">Checkout</button>
         </nav>
     </div>
+
     <hr></hr>
     <div id="body">
+      <div id="homepage">
+        <p>personal info here</p>
+        <hr></hr>
+      </div>
       <div id="products">
         <h1>Catalog of Products</h1>
         
