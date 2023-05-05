@@ -85,35 +85,28 @@ function getAllProducts() {
     }
   }
 
-  function handleOnSubmit(e) {
-    e.preventDefault();
-    console.log(e.target.value);
-    fetch("http://localhost:4000/insert", {
+  function addOneReview(reviewid, new_review) {
+    console.log("product to add review:", reviewid);
+    console.log("new review:", new_review);
+    fetch("http://localhost:4000/insert/", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: addReview,
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({_id: reviewid, rating: new_review}),
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Post a new product completed");
+      console.log("Success:", reviewid);
       console.log(data);
-      if (data) {
-        //const keys = Object.keys(data);
+      if(data) {
         const value = Object.values(data);
         alert(value);
       }
-    });
+    })
   }
 
-  function handleChange(evt) {
-    const value = evt.target.value;
-    if(evt.target.name === "id") {
-      setReview({...addReview, id: value});
-    }
-    else {
-      setReview({...addReview, rating: value});
-    }
-    }
+  function handleReviewChange(evt){
+    setReview(evt.target.value);
+  }
     
     
   
@@ -302,8 +295,8 @@ return (
         <div id="productSingle">{viewer3 && 
         <div>Product: {showproductDetails} <br />
         
-            <input type="text" name="rating" value={addReview} onChange={handleChange}></input> <br />
-            <button onclick="">Add Review</button> <br />
+            <input type="text" name="rating" value={addReview} onChange={handleReviewChange}></input> <br />
+            <button onclick={() => addOneReview(product[index]._id, addReview) }>Add Review</button> <br />
             <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => ""}></input> <br />
             <button type="submit" onclick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
         </div>}</div>
