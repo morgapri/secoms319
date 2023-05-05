@@ -196,7 +196,7 @@ function getAllProducts() {
     Category: {el.category} <br />
     Description: {el.description} <br />
     Price: ${el.price} <br />
-    Amount: {el.amount}
+    Amount: {el.amount} <br />
     Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
   ));
