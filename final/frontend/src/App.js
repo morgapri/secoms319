@@ -4,7 +4,7 @@ const [product, setProduct] = useState([]); //for product view
 const [viewer1, setViewer1] = useState(true);
 const [productDetails, setproductDetails] = useState([]); //for single product view
 const [viewer3, setViewer3] = useState(true);
-const [addReview, setReview] = useState("");
+const [addReview, setReview] = useState("");//the review added
 const [index, setIndex] = useState(0); //for deleting review, index of product
 const [deleteid, setDeleteid] = useState(0); //index in rating array to delete
 
