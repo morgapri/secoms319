@@ -198,8 +198,8 @@ function getAllProducts() {
     Price: ${el.price} <br />
     Amount: {el.amount} <br />
     <button onClick={() => addToCart(product)}>+</button>
-    <button onClick={() => removeFromCart(product)}>-</button>
-    Rate: {el.rating.rate} and Count: {el.rating.count} <br />
+    <button onClick={() => removeFromCart(product)}>-</button> <br />
+    Ratings: <ul>{el.rating.map(rating =><li key={rating}>{rating}</li>)}</ul> <br />
     </div>
   ));
 
