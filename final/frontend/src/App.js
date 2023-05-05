@@ -16,7 +16,7 @@ const showAllItems = product.map((el) => (
   Amount: {el.amount} <br />
   <button>+</button>
   <button>-</button> <br />
-  <button onClick={() => getOneProduct(el._id)}>Details</button> <br />
+  <button onClick={() => singleProduct(el._id)}>Details</button> <br />
   </div>
   ));
   
