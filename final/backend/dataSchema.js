@@ -6,7 +6,7 @@ price: {type: Number},
 description: {type: String},
 category: {type: String},
 image: {type: String},
-amount: {type: Number},
+//amount: {type: Number},
 rating: { type:  Array}
 } ,
 { collection: "final_catalog" }

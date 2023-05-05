@@ -234,9 +234,7 @@ return (
         <p>personal info here</p>
         <hr></hr>
       </div>
-      <div id="admin">
-        
-      </div>
+      <div id="admin"></div>
       <div id="productspage">
         
         <h1>Catalog of Products</h1>
