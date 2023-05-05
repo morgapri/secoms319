@@ -5,6 +5,7 @@
   "description": "These sleek and stylish shoes are only almost ruined by the garish yellow swoosh",
   "category": "shoes",
   "image": "http://127.0.0.1:4000/images/image01.jpg",
+  "amount": 0,
   "rating": {
     "rate": 3.9,
     "count": 120
@@ -16,6 +17,7 @@
   "description": "These soft yellow vans are perfect for a nice picnic",
   "category": "shoes",
   "image": "http://127.0.0.1:4000/images/image02.jpg",
+  "amount": 0,
   "rating": {
     "rate": 4.7,
     "count": 170
@@ -27,6 +29,7 @@
   "description": "This light purple dress is complete with some flowers and a train",
   "category": "dresses",
   "image": "http://127.0.0.1:4000/images/image03.jpg",
+  "amount": 0,
   "rating": {
     "rate": 3.8,
     "count": 127
@@ -38,6 +41,7 @@
   "description": "These black jeans are just stylish enough for other people to think you are stylish",
   "category": "pants",
   "image": "http://127.0.0.1:4000/images/image04.jpg",
+  "amount": 0,
   "rating": {
     "rate": 4.1,
     "count": 1003
@@ -49,6 +53,7 @@
   "description": "This Blue Striped Sweater will not make you look like that one guy fromm Monster's Inc, I swear",
   "category": "sweaters",
   "image": "http://127.0.0.1:4000/images/image05.jpg",
+  "amount": 0,
   "rating": {
     "rate": 2.6,
     "count": 37
@@ -60,6 +65,7 @@
   "description": "This hat is a hat, please buy it",
   "category": "hats",
   "image": "http://127.0.0.1:4000/images/image06.jpg",
+  "amount": 0,
   "rating": {
     "rate": 1.4,
     "count": 58

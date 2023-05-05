@@ -3,7 +3,10 @@ function App() {
 const [product, setProduct] = useState([]);
 const [viewer1, setViewer1] = useState(false);
 const [oneProduct, setOneProduct] = useState([]);
-  const [viewer2, setViewer2] = useState(false);
+const [viewer2, setViewer2] = useState(false);
+
+
+
 const showAllItems = product.map((el) => (
   <div key={el._id}>
   <img src={el.image} width={40} /> <br />
