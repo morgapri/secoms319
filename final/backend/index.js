@@ -50,18 +50,7 @@ app.put("/update", async (req, res) => {
     }
 });
 
-app.post("/insert", async (req, res) => {
-    console.log("Add Review :", req.body._id);
-    console.log("New Review :", req.body.price);
-   try {
-    const filter = {_id: `${req.body._id}`};
-    const updateDoc = {$push : {rating: `${req.body.rating}`}};
-    await Product.updateOne(filter, updateDoc, null);
-   }
-   catch (err){
-    console.log("Error while updateing: " + p_id + " " + err);
-   }
-});
+
 
 app.delete("/delete", async (req, res) => {
     console.log("Delete :", req.body);
