@@ -194,8 +194,9 @@ function getAllProducts() {
     <img src={el.image} width={40} /> <br />
     Title: {el.title} <br />
     Category: {el.category} <br />
-    Description: {el.category} <br />
+    Description: {el.description} <br />
     Price: ${el.price} <br />
+    Amount: {el.amount}
     Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
   ));
