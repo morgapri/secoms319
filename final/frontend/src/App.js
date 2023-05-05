@@ -14,8 +14,8 @@ const showAllItems = product.map((el) => (
   Category: {el.category} <br />
   Price: {el.price} <br />
   Amount: {el.amount} <br />
-  <button>+</button>
-  <button>-</button> <br />
+  <button onClick={() => addToCart(product)}>+</button>
+  <button> onClick={() => removeFromCart(product)}-</button> <br />
   <button onClick={() => singleProduct(el._id)}>Details</button> <br />
   </div>
   ));
@@ -197,6 +197,8 @@ function getAllProducts() {
     Description: {el.description} <br />
     Price: ${el.price} <br />
     Amount: {el.amount}
+    <button onClick={() => addToCart(product)}>+</button>
+    <button onClick={() => removeFromCart(product)}>-</button>
     Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
   ));
