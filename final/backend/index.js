@@ -63,21 +63,6 @@ app.post("/insert", async (req, res) => {
    }
 });
 
-app.delete("/delete", async (req, res) => {
-    console.log("Delete :", req.body);
-    //req being set has to have _id and ratign id
-    try {
-        const query = { _id: req.body._id };
-        await Product.deleteOne(query);
-        const messageResponse = {
-            message: `Product ${req.body._id} deleted correctly`,
-        };
-        res.send(JSON.stringify(messageResponse));
-    } 
-    catch (err) {
-        console.log("Error while deleting :" + p_id + " " + err);
-    }
-});
 
 app.listen(port, () => {
 console.log(`App listening at http://%s:%s`, host, port);

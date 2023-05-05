@@ -5,8 +5,6 @@ const [viewer1, setViewer1] = useState(true);
 const [productDetails, setproductDetails] = useState([]); //for single product view
 const [viewer3, setViewer3] = useState(true);
 const [addReview, setReview] = useState("");//the review added
-const [index, setIndex] = useState(0); //for deleting review, index of product
-const [deleteid, setDeleteid] = useState(0); //index in rating array to delete
 
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
@@ -66,7 +64,6 @@ function getAllProducts() {
   function singleProduct(id){
     document.getElementById('productList').setAttribute('style', 'display: none');
     document.getElementById('productSingle').setAttribute('style', 'display: initial');
-    setIndex(id);
     console.log(id);
     if (id >= 1 && id <= 20) {
       fetch("http://localhost:4000/" + id)
@@ -84,13 +81,6 @@ function getAllProducts() {
       console.log("Wrong number of Product id.");
     }
   }
-
-  
-  
-    
-    
-  
-
 
   const showproductDetails = productDetails.map((el) => (
     <div key={el._id}>
@@ -213,36 +203,6 @@ function getAllProducts() {
     //setChecked5(!checked5);
   }
 
-  function deleteOneProduct(el, arrid) {
-    console.log("Product to delete from :", el._id);
-    console.log("Review to delete :", el.rating[arrid]);
-    fetch("http://localhost:4000/delete/", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ _id: el._id , rating: [arrid]}),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Delete a product completed : ", el._id);
-      console.log(data);
-      if (data) {
-        //const keys = Object.keys(data);
-        const value = Object.values(data);
-        alert(value);
-      }
-    });
-    //setChecked4(!checked4);
-  }
-  function handleDeleteChange(evt){
-    const value = evt.target.value - 1;
-    if(value < product[index].rating.length){
-      setDeleteid(value);
-    }
-    else{
-      alert("Rating number not existant")
-    }
-  }
-
   const handleChange = (e) => {
     setQuery(e.target.value);
     const results = ProductsCategory.filter(eachProduct => {
@@ -280,10 +240,6 @@ return (
         <div id="productList">{viewer1 && <div>Products {showAllItems}</div>}</div>
         <div id="productSingle">{viewer3 && 
         <div>Product: {showproductDetails} <br />
-        
-            
-            <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => handleDeleteChange}></input> <br />
-            <button type="submit" onclick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
         </div>}</div>
         <hr></hr>
       </div>
