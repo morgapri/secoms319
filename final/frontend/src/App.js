@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"; 
 function App() {
 const [product, setProduct] = useState([]);
-const [viewer1, setViewer1] = useState(false);
+const [viewer1, setViewer1] = useState(true);
 const [oneProduct, setOneProduct] = useState([]);
-const [viewer2, setViewer2] = useState(false);
+const [viewer2, setViewer2] = useState(true);
 const [productDetails, setproductDetails] = useState([]);
-const [viewer3, setViewer3] = useState(false);
+const [viewer3, setViewer3] = useState(true);
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
   const [query, setQuery] = useState('');
@@ -58,7 +58,7 @@ function getAllProducts() {
   console.log(data);
   setProduct(data);
   });
-  setViewer1(!viewer1);
+  setViewer1(viewer1);
   }
 
   function singleProduct(id){
@@ -75,7 +75,7 @@ function getAllProducts() {
         dataArr.push(data);
         setproductDetails(dataArr);
       });
-      setViewer3(!viewer3);
+      setViewer3(viewer3);
     } 
     else {
       console.log("Wrong number of Product id.");
