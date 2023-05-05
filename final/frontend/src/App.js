@@ -6,6 +6,7 @@ const [oneProduct, setOneProduct] = useState([]);
 const [viewer2, setViewer2] = useState(true);
 const [productDetails, setproductDetails] = useState([]);
 const [viewer3, setViewer3] = useState(true);
+const [addReview, setReview] = useState("");
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
   const [query, setQuery] = useState('');
@@ -81,6 +82,32 @@ function getAllProducts() {
       console.log("Wrong number of Product id.");
     }
   }
+
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+    fetch("http://localhost:4000/insert", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(addReview),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Post a new product completed");
+      console.log(data);
+      if (data) {
+        //const keys = Object.keys(data);
+        const value = Object.values(data);
+        alert(value);
+      }
+    });
+  }
+
+  function handleChange(evt) {
+    setReview(evt.target.value)
+    //evt.target.rating.push(addReview)
+  }
+
 
   const showproductDetails = productDetails.map((el) => (
     <div key={el._id}>
@@ -203,15 +230,15 @@ function getAllProducts() {
     //setChecked5(!checked5);
   }
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    const results = ProductsCategory.filter(eachProduct => {
+  // const handleChange = (e) => {
+  //   setQuery(e.target.value);
+  //   const results = ProductsCategory.filter(eachProduct => {
    
-    if (e.target.value === "") return ProductsCategory;
-    return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
-    });
-    setProductsCategory(results);
-  }
+  //   if (e.target.value === "") return ProductsCategory;
+  //   return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+  //   });
+  //   setProductsCategory(results);
+  // }
 
   function clear() {
     setProductsCategory(product);
