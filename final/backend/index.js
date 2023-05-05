@@ -36,11 +36,11 @@ app.get("/:id", async (req, resp) => {
 
 app.put("/update", async (req, res) => {
     console.log("Update :", req.body._id);
-    console.log("New Price :", req.body.price);
+    console.log("New Amount :", req.body.amount);
 
     try{
         const filter = { _id: `${req.body._id}` };
-        const updateDoc = { $set: { amount: `${req.body.amount + 1}`} };
+        const updateDoc = { $set: { amount: `${req.body.amount}`} };
         await Product.updateOne(filter, updateDoc, null);
         const messageResponse = {
             message: `Product ${req.body_id} updated correctly`
