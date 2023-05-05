@@ -260,11 +260,11 @@ function getAllProducts() {
     setQuery(e.target.value);
     const results = ProductsCategory.filter(eachProduct => {
    
-  //   if (e.target.value === "") return ProductsCategory;
-  //   return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
-  //   });
-  //   setProductsCategory(results);
-  // }
+     if (e.target.value === "") return ProductsCategory;
+     return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+     });
+     setProductsCategory(results);
+   }
 
   function clear() {
     setProductsCategory(product);
@@ -312,7 +312,7 @@ return (
       </div>
     </div>
   </div>
-  )
+  )};
 
-} // App end
-export default App;
+ // App end
+export default App
