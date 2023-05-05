@@ -243,22 +243,11 @@ return (
         <hr></hr>
       </div>
       <div id="cart">
-        {ProductsCategory.map((product, index) => (
-      <div key={index} >
-        {/*<img alt="Product Image" src={product.image} />
-        <h3>{product.title}</h3>
-        <p class="price">${product.price}</p>
-        <p>{product.description}</p>
-        <button type="button" onClick={() => removeFromCart(product)}>-</button>{" "}
-        <button type="button" variant="light" onClick={() => addToCart(product)}>+</button>
-        <p>Amount: {product.amount}</p>*/}
-        <div class="gap"></div>
         <h3>Cart</h3>
-    <div>{cartItems}</div>
-    <p>Tax (10%): ${tax.toFixed(2)}</p>
-    <p>Total: ${cartTotal.toFixed(2)}</p>
-      </div>
-    ))}
+        <div>{cartItems}</div>
+        
+      <p>Tax (10%): ${tax.toFixed(2)}</p>
+      <p>Total: ${cartTotal.toFixed(2)}</p>
       </div>
       <div id="checkoutpage">
         {/*data for order form in index.js file in frontend, access with id form */}
