@@ -7,10 +7,7 @@ description: {type: String},
 category: {type: String},
 image: {type: String},
 amount: {type: Number},
-rating: {
-rate : {type: Number},
-count : {type: Number}
-}
+rating: { type:  Array}
 } ,
 { collection: "final_catalog" }
 )
