@@ -6,7 +6,7 @@ const [productDetails, setproductDetails] = useState([]); //for single product v
 const [viewer3, setViewer3] = useState(true);
 const [addReview, setReview] = useState("");
 const [index, setIndex] = useState(0); //for deleting review, index of product
-
+const [deleteid, setDeleteid] = useState(0); //index in rating array to delete
 
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
@@ -103,11 +103,6 @@ function getAllProducts() {
         alert(value);
       }
     });
-  }
-
-  function handleChange(evt) {
-    setReview(evt.target.value)
-    //evt.target.rating.push(addReview)
   }
 
 
@@ -252,8 +247,14 @@ function getAllProducts() {
     });
     //setChecked4(!checked4);
   }
-  function handleDeleteChange(e){
-
+  function handleDeleteChange(evt){
+    const value = evt.target.value - 1;
+    if(value < product[index].rating.length){
+      setDeleteid(value);
+    }
+    else{
+      alert("Rating number not existant")
+    }
   }
 
   const handleChange = (e) => {
@@ -295,8 +296,8 @@ return (
         <div>Product: {showproductDetails} <br />
             <input></input> <br />
             <button onclick="">Add Review</button> <br />
-            <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => ""}></input> <br />
-            <button type="submit" onclick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
+            <input type="number" placeholder="Rate's number" value={deleteid} onChange={() => handleDeleteChange()}></input> <br />
+            <button type="submit" onClick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
         </div>}</div>
         <hr></hr>
       </div>
