@@ -173,7 +173,6 @@ function getAllProducts() {
 
     if(el.amount > 1){
       hardCopy[id].amount = el.amount--;
-      {el.amount--}
       setCart(hardCopy)
     }
     else{
