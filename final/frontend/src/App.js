@@ -4,8 +4,8 @@ const [product, setProduct] = useState([]);
 const [viewer1, setViewer1] = useState(false);
 const [oneProduct, setOneProduct] = useState([]);
 const [viewer2, setViewer2] = useState(false);
-
-
+const [productDetails, setproductDetails] = useState([]);
+const [viewer3, setViewer3] = useState(false);
 
 const showAllItems = product.map((el) => (
   <div key={el._id}>
@@ -13,7 +13,9 @@ const showAllItems = product.map((el) => (
   Title: {el.title} <br />
   Category: {el.category} <br />
   Price: {el.price} <br />
-  Rate :{el.rating.rate} and Count:{el.rating.count} <br />
+  <button>+</button>
+  <button>-</button> <br />
+  <button onClick={() => getOneProduct}>Details</button> <br />
   </div>
   ));
   
@@ -22,7 +24,6 @@ const showAllItems = product.map((el) => (
     <img src={el.image} width={40} /> <br />
     Title: {el.title} <br />
     Category: {el.category} <br />
-    Description: {el.description} <br />
     Category: {el.category} <br />
     Price: ${el.price} <br />
     Rate: {el.rating.rate} and Count: {el.rating.count} <br />
@@ -52,6 +53,9 @@ function showCheckout(){
 //functions to hide all but specific product clicked
 
 function getAllProducts() {
+  document.getElementById('productList').setAttribute('style', 'display: initial');
+  document.getElementById('productSearch').setAttribute('style', 'display: none');
+  //document.getElementById('productSingle').setAttribute('style', 'display: none');
   fetch("http://localhost:4000/")
   .then((response) => response.json())
   .then((data) => {
@@ -63,6 +67,9 @@ function getAllProducts() {
   }
   
   function getOneProduct(id) {
+    document.getElementById('productList').setAttribute('style', 'display: none');
+  document.getElementById('productSearch').setAttribute('style', 'display: initial');
+  //document.getElementById('productSingle').setAttribute('style', 'display: none');
     console.log(id);
     if (id >= 1 && id <= 20) {
       fetch("http://localhost:4000/" + id)
@@ -170,6 +177,41 @@ function getAllProducts() {
     setProductsCategory(product);
   }
 
+  //single product descriptions
+
+  /*function singleProduct(id){
+    document.getElementById('productList').setAttribute('style', 'display: none');
+  document.getElementById('productSearch').setAttribute('style', 'display: none');
+  document.getElementById('productSingle').setAttribute('style', 'display: initial');
+    console.log(id);
+    if (id >= 1 && id <= 20) {
+      fetch("http://localhost:4000/" + id)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Show single product :", id);
+        console.log(data);
+        const dataArr = [];
+        dataArr.push(data);
+        setproductDetails(dataArr);
+      });
+      setViewer3(!viewer3);
+    } 
+    else {
+      console.log("Wrong number of Product id.");
+    }
+  }
+
+  const showproductDetails = productDetails.map((el) => (
+    <div key={el._id}>
+    <img src={el.image} width={40} /> <br />
+    Title: {el.title} <br />
+    Category: {el.category} <br />
+    Category: {el.category} <br />
+    Price: ${el.price} <br />
+    Rate: {el.rating.rate} and Count: {el.rating.count} <br />
+    </div>
+  ));*/
+
 return (
   <div>
     <div id="navbar" class="container-fluid">
@@ -188,12 +230,13 @@ return (
         <hr></hr>
       </div>
       <div id="productspage">
-      <input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
-        <h1>Show one Product by Id:</h1>
-        {viewer2 && <div>Product: {showOneItem}</div>}
-        <h1>Catalog of Products</h1>
+        {/*<input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
+        <button onClick={() => clear()}>Clear</button>
+<button onClick={() => showProducts()}>Show All</button>*/}
         
+        <h1>Catalog of Products</h1>
         <div id="productList">{viewer1 && <div>Products {showAllItems}</div>}</div>
+        <div id="productSearch">{viewer2 && <div>Product: {showOneItem}</div>}</div>
         <hr></hr>
       </div>
       <div id="cart">
