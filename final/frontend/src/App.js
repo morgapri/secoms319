@@ -185,6 +185,7 @@ function getAllProducts() {
       {el.amount--}
     }
     
+    
     fetch("http://localhost:4000/update/", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
