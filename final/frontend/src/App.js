@@ -85,28 +85,8 @@ function getAllProducts() {
     }
   }
 
-  function addOneReview(reviewid, new_review) {
-    console.log("product to add review:", reviewid);
-    console.log("new review:", new_review);
-    fetch("http://localhost:4000/insert/", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({_id: reviewid, rating: new_review}),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", reviewid);
-      console.log(data);
-      if(data) {
-        const value = Object.values(data);
-        alert(value);
-      }
-    })
-  }
-
-  function handleReviewChange(evt){
-    setReview(evt.target.value);
-  }
+  
+  
     
     
   
@@ -301,8 +281,7 @@ return (
         <div id="productSingle">{viewer3 && 
         <div>Product: {showproductDetails} <br />
         
-            <input type="text" name="rating" value={addReview} onChange={handleReviewChange}></input> <br />
-            <button onclick={() => addOneReview(product[index]._id, addReview) }>Add Review</button> <br />
+            
             <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => handleDeleteChange}></input> <br />
             <button type="submit" onclick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
         </div>}</div>

@@ -36,7 +36,7 @@ app.get("/:id", async (req, resp) => {
 
 app.put("/update", async (req, res) => {
     console.log("Update :", req.body._id);
-    console.log("New Amount :", req.body.amount);
+    console.log("New Price :", req.body.price);
 
     try{
         const filter = { _id: `${req.body._id}` };
@@ -51,8 +51,10 @@ app.put("/update", async (req, res) => {
 });
 
 app.post("/insert", async (req, res) => {
+    console.log("Add Review :", req.body._id);
+    console.log("New Review :", req.body.price);
    try {
-    const filter = {_id: `${req.body_id}`};
+    const filter = {_id: `${req.body._id}`};
     const updateDoc = {$push : {rating: `${req.body.rating}`}};
     await Product.updateOne(filter, updateDoc, null);
    }
