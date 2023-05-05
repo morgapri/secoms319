@@ -303,7 +303,7 @@ return (
         
             <input type="text" name="rating" value={addReview} onChange={handleReviewChange}></input> <br />
             <button onclick={() => addOneReview(product[index]._id, addReview) }>Add Review</button> <br />
-            <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => ""}></input> <br />
+            <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => handleDeleteChange}></input> <br />
             <button type="submit" onclick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
         </div>}</div>
         <hr></hr>
