@@ -26,6 +26,14 @@ console.log(allProducts);
 resp.send(allProducts);
 });
 
+app.get("/:id", async (req, resp) => {
+    const id = req.params.id;
+    const query = { _id: id };
+    const oneProduct = await Product.findOne(query);
+    console.log(oneProduct);
+    resp.send(oneProduct);
+});
+
 app.put("/update", async (req, res) => {
     console.log("Update :", req.body._id);
     console.log("New Price :", req.body.price);
