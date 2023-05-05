@@ -19,17 +19,6 @@ const showAllItems = product.map((el) => (
   <button onClick={() => singleProduct(el._id)}>Details</button> <br />
   </div>
   ));
-  
-  const showOneItem = oneProduct.map((el) => (
-    <div key={el._id}>
-    <img src={el.image} width={40} /> <br />
-    Title: {el.title} <br />
-    Category: {el.category} <br />
-    Category: {el.category} <br />
-    Price: ${el.price} <br />
-    Rate: {el.rating.rate} and Count: {el.rating.count} <br />
-    </div>
-  ));
 
 window.addEventListener('load', () => showHome());
 
@@ -55,7 +44,6 @@ function showCheckout(){
 
 function getAllProducts() {
   document.getElementById('productList').setAttribute('style', 'display: initial');
-  document.getElementById('productSearch').setAttribute('style', 'display: none');
   document.getElementById('productSingle').setAttribute('style', 'display: none');
   fetch("http://localhost:4000/")
   .then((response) => response.json())
@@ -182,7 +170,6 @@ function getAllProducts() {
 
   function singleProduct(id){
     document.getElementById('productList').setAttribute('style', 'display: none');
-  document.getElementById('productSearch').setAttribute('style', 'display: none');
   document.getElementById('productSingle').setAttribute('style', 'display: initial');
     console.log(id);
     if (id >= 1 && id <= 20) {
@@ -207,7 +194,7 @@ function getAllProducts() {
     <img src={el.image} width={40} /> <br />
     Title: {el.title} <br />
     Category: {el.category} <br />
-    Category: {el.category} <br />
+    Description: {el.category} <br />
     Price: ${el.price} <br />
     Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
@@ -231,13 +218,9 @@ return (
         <hr></hr>
       </div>
       <div id="productspage">
-        <input type="text" id="message" name="message" placeholder="id" onChange={(e) =>getOneProduct(e.target.value)} />
-        <button onClick={() => clear()}>Clear</button>
-        <button onClick={() => showProducts()}>Show All</button>
         
         <h1>Catalog of Products</h1>
         <div id="productList">{viewer1 && <div>Products {showAllItems}</div>}</div>
-        <div id="productSearch">{viewer2 && <div>Product: {showOneItem}</div>}</div>
         <div id="productSingle">{viewer3 && <div>Product: {showproductDetails}</div>}</div>
         <hr></hr>
       </div>
