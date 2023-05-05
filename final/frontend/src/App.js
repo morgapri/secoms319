@@ -159,7 +159,7 @@ function getAllProducts() {
     else{
       let id;
       for(let j = 0; j < cart.length; j++){
-        if(cart[j].id == el.id){
+        if(cart[j].id == el._id){
           id = j;
         }
       }
@@ -193,7 +193,7 @@ function getAllProducts() {
     let id;
     let hardCopy = [...cart];
       for(let j = 0; j < cart.length; j++){
-        if(cart[j].id == el.id){
+        if(cart[j].id == el._id){
           id = j;
         }
       }
@@ -265,7 +265,13 @@ return (
         
         <h1>Catalog of Products</h1>
         <div id="productList">{viewer1 && <div>Products {showAllItems}</div>}</div>
-        <div id="productSingle">{viewer3 && <div>Product: {showproductDetails}</div>}</div>
+        <div id="productSingle">{viewer3 && 
+        <div>Product: {showproductDetails} <br />
+            <input></input> <br />
+            <button onclick="">Add Review</button> <br />
+            <input></input> <br />
+            <button onclick="">Delete Review</button> <br />
+        </div>}</div>
         <hr></hr>
       </div>
       <div id="cart">
