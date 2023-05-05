@@ -6,6 +6,12 @@ const [oneProduct, setOneProduct] = useState([]);
 const [viewer2, setViewer2] = useState(false);
 const [productDetails, setproductDetails] = useState([]);
 const [viewer3, setViewer3] = useState(false);
+//cart
+const [ProductsCategory, setProductsCategory] = useState(product);
+  const [query, setQuery] = useState('');
+  const[cart, setCart] = useState([]);
+  const[cartTotal, setCartTotal] = useState(0);
+  let tax = cartTotal.toFixed(2) - (cartTotal.toFixed(2) / 1.1);
 
 const showAllItems = product.map((el) => (
   <div key={el._id}>
@@ -14,8 +20,8 @@ const showAllItems = product.map((el) => (
   Category: {el.category} <br />
   Price: {el.price} <br />
   Amount: {el.amount} <br />
-  <button onClick={() => addToCart(product)}>+</button>
-  <button> onClick={() => removeFromCart(product)}-</button> <br />
+  <button onClick={() => updateAddProduct(el)}>+</button>
+  <button onClick={() => updateRemoveProduct(el)}>-</button> <br />
   <button onClick={() => singleProduct(el._id)}>Details</button> <br />
   </div>
   ));
@@ -54,119 +60,6 @@ function getAllProducts() {
   });
   setViewer1(!viewer1);
   }
-  
-  function getOneProduct(id) {
-    document.getElementById('productList').setAttribute('style', 'display: none');
-  document.getElementById('productSearch').setAttribute('style', 'display: initial');
-  document.getElementById('productSingle').setAttribute('style', 'display: none');
-    console.log(id);
-    if (id >= 1 && id <= 20) {
-      fetch("http://localhost:4000/" + id)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Show one product :", id);
-        console.log(data);
-        const dataArr = [];
-        dataArr.push(data);
-        setOneProduct(dataArr);
-      });
-      setViewer2(!viewer2);
-    } 
-    else {
-      console.log("Wrong number of Product id.");
-    }
-  }
-
-//stuff from assignment 2 cart
- const [ProductsCategory, setProductsCategory] = useState(product);
-  const [query, setQuery] = useState('');
-  const[cart, setCart] = useState([]);
-  const[cartTotal, setCartTotal] = useState(0);
-  let tax = cartTotal.toFixed(2) - (cartTotal.toFixed(2) / 1.1);
-
-  useEffect(() => {
-      total();
-  }, [cart])
-
-  const addToCart = (el) => {
-    if(el.amount == 0){
-      setCart([...cart, el])
-      {el.amount++}
-    }
-    else{
-      let id;
-      for(let j = 0; j < cart.length; j++){
-        if(cart[j].id == el.id){
-          id = j;
-        }
-      }
-      let hardCopy = [...cart];
-      hardCopy[id].amount = el.amount++;
-      {el.amount++}
-      setCart(hardCopy)
-    }
-  }
-
-  const total = () => {
-      let totalVal = 0;
-      let tax = 1.1;
-      for(let i = 0; i < cart.length; i++)
-      {
-          totalVal+=cart[i].price*cart[i].amount;
-      }
-      totalVal = totalVal * tax;
-      setCartTotal(totalVal);
-  }
-
-  const removeFromCart = (el) =>
-  {
-    let id;
-    let hardCopy;
-      for(let j = 0; j < cart.length; j++){
-        if(cart[j].id == el.id){
-          id = j;
-        }
-      }
-
-    if(el.amount > 1){
-      hardCopy = [...cart];
-      hardCopy[id].amount = el.amount--;
-      setCart(hardCopy)
-    }
-    else{
-      hardCopy = [...cart];
-      hardCopy = hardCopy.filter((cartItem) => cartItem.id != el.id);
-      setCart(hardCopy);
-    }
-    if(el.amount > 0){
-      {el.amount--}
-    }
-  }
-
-  const cartItems = cart.map((el) => (
-      <div key={el.id}>
-          <img class = "img-fluid" src = {el.image} width={100}/>
-          {el.title}:
-           ${el.price}:
-          x{el.amount}
-      </div>
-  ))
-
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    const results = ProductsCategory.filter(eachProduct => {
-   
-    if (e.target.value === "") return ProductsCategory;
-    return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
-    });
-    setProductsCategory(results);
-  }
-
-  function clear() {
-    setProductsCategory(product);
-  }
-
-  //single product descriptions
 
   function singleProduct(id){
     document.getElementById('productList').setAttribute('style', 'display: none');
@@ -197,11 +90,132 @@ function getAllProducts() {
     Description: {el.description} <br />
     Price: ${el.price} <br />
     Amount: {el.amount}
-    <button onClick={() => addToCart(product)}>+</button>
-    <button onClick={() => removeFromCart(product)}>-</button>
+    <button onClick={() => updateAddProduct(el)}>+</button>
+    <button onClick={() => updateRemoveProduct(el)}>-</button>
     Rate: {el.rating.rate} and Count: {el.rating.count} <br />
     </div>
   ));
+
+//stuff from assignment 2 cart
+  useEffect(() => {
+      total();
+  }, [cart])
+
+  const total = () => {
+      let totalVal = 0;
+      let tax = 1.1;
+      for(let i = 0; i < cart.length; i++)
+      {
+          totalVal+=cart[i].price*cart[i].amount;
+      }
+      totalVal = totalVal * tax;
+      setCartTotal(totalVal);
+  }
+
+  const cartItems = cart.map((el) => (
+      <div key={el.id}>
+          <img class = "img-fluid" src = {el.image} width={100}/>
+          {el.title}:
+           ${el.price}:
+          x{el.amount}
+      </div>
+  ))
+
+  function updateAddProduct(el) {
+    console.log("Product to update :", el._id);
+    console.log("Value to update add 1 :", el.amount);
+
+    if(el.amount == 0){
+      setCart([...cart, el])
+      {el.amount++}
+    }
+    else{
+      let id;
+      for(let j = 0; j < cart.length; j++){
+        if(cart[j].id == el.id){
+          id = j;
+        }
+      }
+      let hardCopy = [...cart];
+      hardCopy[id].amount = el.amount++;
+      {el.amount++}
+      setCart(hardCopy)
+    }
+    fetch("http://localhost:4000/update/", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ _id: el._id , amount: el.amount}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Updating the product's price completed : ", el._id);
+        console.log(data);
+        if (data) {
+          //const keys = Object.keys(data);
+          const value = Object.values(data);
+          alert(value);
+        }
+      });
+    //setChecked5(!checked5);
+  }
+
+  function updateRemoveProduct(el) {
+    console.log("Product to update :", el._id);
+    console.log("Value to update subtract 1 :", el.amount);
+
+    let id;
+    let hardCopy = [...cart];
+      for(let j = 0; j < cart.length; j++){
+        if(cart[j].id == el.id){
+          id = j;
+        }
+      }
+
+    if(el.amount > 1){
+      hardCopy[id].amount = el.amount--;
+      {el.amount--}
+      setCart(hardCopy)
+    }
+    else{
+      hardCopy = hardCopy.filter((cartItem) => cartItem.id != el.id);
+      setCart(hardCopy);
+      
+    }
+    if(el.amount > 0){
+      {el.amount--}
+    }
+    
+    fetch("http://localhost:4000/update/", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ _id: el._id , amount: el.amount}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Updating the product's price completed : ", el._id);
+        console.log(data);
+        if (data) {
+          //const keys = Object.keys(data);
+          const value = Object.values(data);
+          alert(value);
+        }
+      });
+    //setChecked5(!checked5);
+  }
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+    const results = ProductsCategory.filter(eachProduct => {
+   
+    if (e.target.value === "") return ProductsCategory;
+    return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+    });
+    setProductsCategory(results);
+  }
+
+  function clear() {
+    setProductsCategory(product);
+  }
 
 return (
   <div>
@@ -230,13 +244,13 @@ return (
       <div id="cart">
         {ProductsCategory.map((product, index) => (
       <div key={index} >
-        <img alt="Product Image" src={product.image} />
+        {/*<img alt="Product Image" src={product.image} />
         <h3>{product.title}</h3>
         <p class="price">${product.price}</p>
         <p>{product.description}</p>
         <button type="button" onClick={() => removeFromCart(product)}>-</button>{" "}
         <button type="button" variant="light" onClick={() => addToCart(product)}>+</button>
-        <p>Amount: {product.amount}</p>
+        <p>Amount: {product.amount}</p>*/}
         <div class="gap"></div>
         <h3>Cart</h3>
     <div>{cartItems}</div>
