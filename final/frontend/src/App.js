@@ -89,7 +89,7 @@ function getAllProducts() {
     fetch("http://localhost:4000/insert", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(addReview),
+      body: addReview,
     })
     .then((response) => response.json())
     .then((data) => {
@@ -104,9 +104,17 @@ function getAllProducts() {
   }
 
   function handleChange(evt) {
-    setReview(evt.target.value)
-    //evt.target.rating.push(addReview)
-  }
+    const value = evt.target.value;
+    if(evt.target.name === "id") {
+      setReview({...addReview, id: value});
+    }
+    else {
+      setReview({...addReview, rating: value});
+    }
+    }
+    
+    
+  
 
 
   const showproductDetails = productDetails.map((el) => (
@@ -267,10 +275,11 @@ return (
         <div id="productList">{viewer1 && <div>Products {showAllItems}</div>}</div>
         <div id="productSingle">{viewer3 && 
         <div>Product: {showproductDetails} <br />
-            <input></input> <br />
+        
+            <input type="text" name="rating" value={addReview} onChange={handleChange}></input> <br />
             <button onclick="">Add Review</button> <br />
             <input></input> <br />
-            <button onclick="">Delete Review</button> <br />
+            <button type="submit" onClick={handleOnSubmit}>Delete Review</button> <br />
         </div>}</div>
         <hr></hr>
       </div>
