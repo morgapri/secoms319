@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"; 
 function App() {
-const [product, setProduct] = useState([]);
+const [product, setProduct] = useState([]); //for product view
 const [viewer1, setViewer1] = useState(true);
-const [oneProduct, setOneProduct] = useState([]);
-const [viewer2, setViewer2] = useState(true);
-const [productDetails, setproductDetails] = useState([]);
+const [productDetails, setproductDetails] = useState([]); //for single product view
 const [viewer3, setViewer3] = useState(true);
 const [addReview, setReview] = useState("");
+const [index, setIndex] = useState(0); //for deleting review, index of product
+
+
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
   const [query, setQuery] = useState('');
@@ -64,7 +65,8 @@ function getAllProducts() {
 
   function singleProduct(id){
     document.getElementById('productList').setAttribute('style', 'display: none');
-  document.getElementById('productSingle').setAttribute('style', 'display: initial');
+    document.getElementById('productSingle').setAttribute('style', 'display: initial');
+    setIndex(id);
     console.log(id);
     if (id >= 1 && id <= 20) {
       fetch("http://localhost:4000/" + id)
@@ -238,15 +240,39 @@ function getAllProducts() {
     //setChecked5(!checked5);
   }
 
-  // const handleChange = (e) => {
-  //   setQuery(e.target.value);
-  //   const results = ProductsCategory.filter(eachProduct => {
+  function deleteOneProduct(el, arrid) {
+    console.log("Product to delete from :", el._id);
+    console.log("Review to delete :", el.rating[arrid]);
+    fetch("http://localhost:4000/delete/", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ _id: el._id , rating: [arrid]}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Delete a product completed : ", el._id);
+      console.log(data);
+      if (data) {
+        //const keys = Object.keys(data);
+        const value = Object.values(data);
+        alert(value);
+      }
+    });
+    //setChecked4(!checked4);
+  }
+  function handleDeleteChange(e){
+
+  }
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+    const results = ProductsCategory.filter(eachProduct => {
    
-  //   if (e.target.value === "") return ProductsCategory;
-  //   return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
-  //   });
-  //   setProductsCategory(results);
-  // }
+     if (e.target.value === "") return ProductsCategory;
+     return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+     });
+     setProductsCategory(results);
+   }
 
   function clear() {
     setProductsCategory(product);
@@ -278,8 +304,8 @@ return (
         
             <input type="text" name="rating" value={addReview} onChange={handleChange}></input> <br />
             <button onclick="">Add Review</button> <br />
-            <input></input> <br />
-            <button type="submit" onClick={handleOnSubmit}>Delete Review</button> <br />
+            <input type="number" placeholder="Rate's number" value="deleteid" onChange={() => ""}></input> <br />
+            <button type="submit" onclick={() =>deleteOneProduct(product[index], deleteid)}>Delete Review</button> <br />
         </div>}</div>
         <hr></hr>
       </div>
@@ -295,7 +321,7 @@ return (
       </div>
     </div>
   </div>
-  )
+  )};
 
-} // App end
-export default App;
+ // App end
+export default App
