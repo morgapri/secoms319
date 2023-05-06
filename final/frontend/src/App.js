@@ -61,7 +61,7 @@ const [index, setIndex] = useState(0); //for delete index
  const [checked4, setChecked4] = useState(false);
 
 //cart
-const [ProductsCategory, setProductsCategory] = useState(product);
+const [amounts, setAmounts] = useState(Amounts);
   const [query, setQuery] = useState('');
   const[cart, setCart] = useState([]);
   const[cartTotal, setCartTotal] = useState(0);
@@ -163,6 +163,49 @@ function getAllProducts() {
   useEffect(() => {
       total();
   }, [cart])
+
+  const addToCart = (el) => {
+    if(el.amount == 0){
+      setCart([...cart, el])
+      {el.amount++}
+    }
+    else{
+      let id;
+      for(let j = 0; j < cart.length; j++){
+        if(cart[j].id == el.id){
+          id = j;
+        }
+      }
+      let hardCopy = [...cart];
+      hardCopy[id].amount = el.amount++;
+      {el.amount++}
+      setCart(hardCopy)
+    }
+  }
+  const removeFromCart = (el) =>
+  {
+    let id;
+    let hardCopy;
+      for(let j = 0; j < cart.length; j++){
+        if(cart[j].id == el.id){
+          id = j;
+        }
+      }
+
+    if(el.amount > 1){
+      hardCopy = [...cart];
+      hardCopy[id].amount = el.amount--;
+      setCart(hardCopy)
+    }
+    else{
+      hardCopy = [...cart];
+      hardCopy = hardCopy.filter((cartItem) => cartItem.id != el.id);
+      setCart(hardCopy);
+    }
+    if(el.amount > 0){
+      {el.amount--}
+    }
+  }
 
   const total = () => {
       let totalVal = 0;
@@ -302,14 +345,6 @@ function getAllProducts() {
       }
     });
     setChecked4(!checked4);
-  }
-
-  function showProductToDelete(id){
-    setIndex(id);
-    <div>
-      <img src={product[id].image} width={40}/> <br />
-      Title: {product[id].title} <br />
-    </div>
   }
 
   const handleChange = (e) => {
