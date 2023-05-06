@@ -74,8 +74,8 @@ const showAllItems = product.map((el) => (
   Category: {el.category} <br />
   Price: ${el.price} <br />
   Amount: {amounts[el._id].amount} <br />
-  <button onClick={() => updateAddProduct(el)}>+</button>
-  <button onClick={() => updateRemoveProduct(el)}>-</button> <br />
+  <button onClick={() => addToCart(el)}>+</button>
+  <button onClick={() => removeFromCart(el)}>-</button> <br />
   <button onClick={() => singleProduct(el._id)}>Details</button> <br />
   </div>
   ));
@@ -152,10 +152,11 @@ function getAllProducts() {
     Category: {el.category} <br />
     Description: {el.description} <br />
     Price: ${el.price} <br />
+    Ratings: <ul>{el.rating.map(rating =><li key={rating}>{rating}</li>)}</ul> <br />
     Amount: {amounts[el._id].amount} <br />
     <button onClick={() => updateAddProduct(el)}>+</button>
     <button onClick={() => updateRemoveProduct(el)}>-</button>
-    Ratings: <ul>{el.rating.map(rating =><li key={rating}>{rating}</li>)}</ul> <br />
+    
     </div>
   ));
 
@@ -165,20 +166,20 @@ function getAllProducts() {
   }, [cart])
 
   const addToCart = (el) => {
-    if(el.amount == 0){
+    if(amounts[el._id].amount == 0){
       setCart([...cart, el])
-      {el.amount++}
+      {amounts[el._id].amount++}
     }
     else{
       let id;
       for(let j = 0; j < cart.length; j++){
-        if(cart[j].id == el.id){
+        if(cart[j].id == el._id){
           id = j;
         }
       }
       let hardCopy = [...cart];
-      hardCopy[id].amount = el.amount++;
-      {el.amount++}
+      hardCopy[id].amount = amounts[el._id].amount++;
+      {amounts[el._id].amount++}
       setCart(hardCopy)
     }
   }
@@ -187,23 +188,23 @@ function getAllProducts() {
     let id;
     let hardCopy;
       for(let j = 0; j < cart.length; j++){
-        if(cart[j].id == el.id){
+        if(cart[j].id == el._id){
           id = j;
         }
       }
 
-    if(el.amount > 1){
+    if(amounts[el._id].amount > 1){
       hardCopy = [...cart];
-      hardCopy[id].amount = el.amount--;
+      hardCopy[id].amount = amounts[el._id].amount--;
       setCart(hardCopy)
     }
     else{
       hardCopy = [...cart];
-      hardCopy = hardCopy.filter((cartItem) => cartItem.id != el.id);
+      hardCopy = hardCopy.filter((cartItem) => cartItem.id != el._id);
       setCart(hardCopy);
     }
-    if(el.amount > 0){
-      {el.amount--}
+    if(amounts[el._id].amount > 0){
+      {amounts[el._id].amount--}
     }
   }
 
@@ -219,11 +220,11 @@ function getAllProducts() {
   }
 
   const cartItems = cart.map((el) => (
-      <div key={el.id}>
+      <div key={el._id}>
           <img class = "img-fluid" src = {el.image} width={100}/>
           {el.title}:
            ${el.price}:
-          x{el.amount}
+          x{amounts[el._id].amount}
       </div>
   ))
 
