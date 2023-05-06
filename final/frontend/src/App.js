@@ -73,7 +73,7 @@ const showAllItems = product.map((el) => (
   Title: {el.title} <br />
   Category: {el.category} <br />
   Price: ${el.price} <br />
-  Amount: {el.amount} <br />
+  Amount: {amounts[el._id].amount} <br />
   <button onClick={() => updateAddProduct(el)}>+</button>
   <button onClick={() => updateRemoveProduct(el)}>-</button> <br />
   <button onClick={() => singleProduct(el._id)}>Details</button> <br />
@@ -347,19 +347,19 @@ function getAllProducts() {
     setChecked4(!checked4);
   }
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    const results = ProductsCategory.filter(eachProduct => {
+  // const handleChange = (e) => {
+  //   setQuery(e.target.value);
+  //   const results = ProductsCategory.filter(eachProduct => {
    
-     if (e.target.value === "") return ProductsCategory;
-     return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
-     });
-     setProductsCategory(results);
-   }
+  //    if (e.target.value === "") return ProductsCategory;
+  //    return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+  //    });
+  //    setProductsCategory(results);
+  //  }
 
-  function clear() {
-    setProductsCategory(product);
-  }
+  // function clear() {
+  //   setProductsCategory(product);
+  // }
 
 return (
   <div>
