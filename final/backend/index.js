@@ -34,6 +34,36 @@ app.get("/:id", async (req, resp) => {
     resp.send(oneProduct);
 });
 
+app.post("/insert", async (req, res) => {
+    console.log(req.body);
+    const p_id = req.body._id;
+    const ptitle = req.body.title;
+    const pprice = req.body.price;
+    const pdescription = req.body.description;
+    const pcategory = req.body.category;
+    const pimage = req.body.image;
+    const prate = req.body.rating;
+   
+    const formData = new Product({
+        _id: p_id,
+        title: ptitle,
+        price: pprice,
+        description: pdescription,
+        category: pcategory,
+        image: pimage,
+        rating: prate,
+    });
+    try {
+        // await formData.save();
+        await Product.create(formData);
+        const messageResponse = { message: `Product ${p_id} added correctly` };
+        res.send(JSON.stringify(messageResponse));
+    } 
+    catch (err) {
+        console.log("Error while adding a new product:" + err);
+    }
+});
+
 app.put("/update", async (req, res) => {
     console.log("Update :", req.body._id);
     console.log("New Price :", req.body.price);
