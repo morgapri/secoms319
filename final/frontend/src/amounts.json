@@ -1,6 +1,14 @@
 [
     {
         "id": 0,
+        "amount": 0
+    },
+    {
+        "id": 0,
+        "amount": 0
+    },
+    {
+        "id": 0,
         "amount":100
     },
     {
@@ -9,34 +17,34 @@
     },
     {
         "id": 2,
-        "amount":3
+        "amount":0
     },
     {
         "id": 3,
-        "amount":77
+        "amount":0
     },
     {
         "id":4,
-        "amount":6
+        "amount":0
     },
     {
         "id": 5,
-        "amount":1
+        "amount":0
     },
     {
         "id": 6,
-        "amount":2
+        "amount":0
     },
     {
         "id": 7,
-        "amount":3
+        "amount":0
     },
     {
         "id": 8,
-        "amount":5
+        "amount":0
     },
     {
         "id": 9,
-        "amount":4
+        "amount":0
     }
 ]
