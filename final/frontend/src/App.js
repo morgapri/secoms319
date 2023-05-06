@@ -77,6 +77,7 @@ const showAllItems = product.map((el) => (
   <button onClick={() => addToCart(el)}>+</button>
   <button onClick={() => removeFromCart(el)}>-</button> <br />
   <button onClick={() => singleProduct(el._id)}>Details</button> <br />
+  <br />
   </div>
   ));
 
@@ -154,8 +155,8 @@ function getAllProducts() {
     Price: ${el.price} <br />
     Ratings: <ul>{el.rating.map(rating =><li key={rating}>{rating}</li>)}</ul> <br />
     Amount: {amounts[el._id].amount} <br />
-    <button onClick={() => updateAddProduct(el)}>+</button>
-    <button onClick={() => updateRemoveProduct(el)}>-</button>
+    <button onClick={() => addToCart(el)}>+</button>
+    <button onClick={() => removeFromCart(el)}>-</button>
     
     </div>
   ));
