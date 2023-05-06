@@ -80,23 +80,32 @@ window.addEventListener('load', () => showHome());
 
 function showHome(){
   document.getElementById('homepage').setAttribute('style', 'display: initial')
+  document.getElementById('admin').setAttribute('style', 'display: none')
   document.getElementById('productspage').setAttribute('style', 'display: none')
   document.getElementById('cart').setAttribute('style', 'display: none')
   document.getElementById('form').setAttribute('style', 'display: none')
 }
 function  showProducts(){
   document.getElementById('homepage').setAttribute('style', 'display: none')
+  document.getElementById('admin').setAttribute('style', 'display: none')
   document.getElementById('productspage').setAttribute('style', 'display: initial')
   document.getElementById('cart').setAttribute('style', 'display: initial')
   document.getElementById('form').setAttribute('style', 'display: none')
 }
 function showCheckout(){
   document.getElementById('homepage').setAttribute('style', 'display: none')
+  document.getElementById('admin').setAttribute('style', 'display: none')
   document.getElementById('productspage').setAttribute('style', 'display: none')
   document.getElementById('cart').setAttribute('style', 'display: initial')
   document.getElementById('form').setAttribute('style', 'display: initial')
 }
-//functions to hide all but specific product clicked
+function showAdmin(){
+  document.getElementById('homepage').setAttribute('style', 'display: none')
+  document.getElementById('admin').setAttribute('style', 'display: initial')
+  document.getElementById('productspage').setAttribute('style', 'display: none')
+  document.getElementById('cart').setAttribute('style', 'display: none')
+  document.getElementById('form').setAttribute('style', 'display: none')
+}
 
 function getAllProducts() {
   document.getElementById('productList').setAttribute('style', 'display: initial');
@@ -273,7 +282,7 @@ return (
         <nav class="navbar navbar-expand navbar-dark bg-fark">
           <button id="home" onClick={() => showHome()}>Home</button>
           <button id="products" onClick={() => {getAllProducts(); showProducts();}}>Products</button>
-          
+          <button id="adminbutton" onClick={() => showAdmin()}>Admin</button>
           <button id="checkout" onClick={() => showCheckout()}>Checkout</button>
         </nav>
     </div>
@@ -281,7 +290,11 @@ return (
     <hr></hr>
     <div id="body">
       <div id="homepage">
-        <p>personal info here</p>
+        <h1>Welcome to our final Project</h1> <br />
+        <p>SE/ComS 319 Construction of User Interfaces, Spring 2023</p> <br />
+        <p>Paige Schneider: schnpa@iastate.edu</p> <br />
+        <p>Morgan Prieskorn: mopriesk@iastate.edu</p> <br />
+        <p>Instructor: Dr. Abraham N. Aldaco Gastelum aaldaco@iastate.edu</p>
         <hr></hr>
       </div>
       <div id="admin"></div>

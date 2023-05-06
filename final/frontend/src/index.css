@@ -35,10 +35,13 @@ nav #home{
 }
 
 nav #checkout{
-  margin-left: 30%;
+  
 }
 
 #body{
   color: darkslategray;
   padding-left: 5%;
+}
+
+#homepage{
 }
