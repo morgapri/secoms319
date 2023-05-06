@@ -297,7 +297,22 @@ return (
         <p>Instructor: Dr. Abraham N. Aldaco Gastelum aaldaco@iastate.edu</p>
         <hr></hr>
       </div>
-      <div id="admin"></div>
+      <div id="admin">
+      <h3>Add a new product :</h3>
+        <form action="">
+          <input type="number" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} />
+          <input type="text" placeholder="title?" name="title" value={addNewProduct.title} onChange={handleChange} />
+          <input type="number" placeholder="price?" name="price" value={addNewProduct.price} onChange={handleChange} />
+          <input type="text" placeholder="description?" name="description" value={addNewProduct.description} onChange={handleChange} />
+          <input type="text" placeholder="category?" name="category" value={addNewProduct.category} onChange={handleChange} />
+          <input type="text" placeholder="image?" name="image" value={addNewProduct.image} onChange={handleChange} />
+          <input type="number" placeholder="rate?" name="rate" value={addNewProduct.rating} onChange={handleChange} />
+          <button type="submit" onClick={handleOnSubmit}>
+          submit
+          </button>
+        </form>
+
+      </div>
       <div id="productspage">
         
         <h1>Catalog of Products</h1>
