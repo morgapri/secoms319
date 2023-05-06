@@ -5,6 +5,8 @@ const [viewer1, setViewer1] = useState(true);
 const [productDetails, setproductDetails] = useState([]); //for single product view
 const [viewer3, setViewer3] = useState(true);
 const [addReview, setReview] = useState("");//the review added
+const [index, setIndex] = useState(0); //for delete index
+ const [checked4, setChecked4] = useState(false);
 
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
@@ -18,7 +20,7 @@ const showAllItems = product.map((el) => (
   <img src={el.image} width={40} /> <br />
   Title: {el.title} <br />
   Category: {el.category} <br />
-  Price: {el.price} <br />
+  Price: ${el.price} <br />
   Amount: {el.amount} <br />
   <button onClick={() => updateAddProduct(el)}>+</button>
   <button onClick={() => updateRemoveProduct(el)}>-</button> <br />
@@ -212,6 +214,52 @@ function getAllProducts() {
     //setChecked5(!checked5);
   }
 
+  function getOneByOneProductNext() {
+    if (product.length > 0) {
+      if (index === product.length - 1) setIndex(0);
+      else setIndex(index + 1);
+      if (product.length > 0) setViewer1(true);
+      else setViewer1(false);
+    }
+  }
+
+  function getOneByOneProductPrev() {
+    if (product.length > 0) {
+      if (index === 0) setIndex(product.length - 1);
+      else setIndex(index - 1);
+      if (product.length > 0) setViewer1(true);
+      else setViewer1(false);
+    }
+  }
+
+  function deleteOneProduct(deleteid) {
+    console.log("Product to delete :", deleteid);
+    fetch("http://localhost:4000/delete/", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ _id: deleteid }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Delete a product completed : ", deleteid);
+      console.log(data);
+      if (data) {
+        //const keys = Object.keys(data);
+        const value = Object.values(data);
+        alert(value);
+      }
+    });
+    setChecked4(!checked4);
+  }
+
+  function showProductToDelete(id){
+    setIndex(id);
+    <div>
+      <img src={product[id].image} width={40}/> <br />
+      Title: {product[id].title} <br />
+    </div>
+  }
+
   const handleChange = (e) => {
     setQuery(e.target.value);
     const results = ProductsCategory.filter(eachProduct => {
@@ -247,7 +295,26 @@ return (
         <p>Instructor: Dr. Abraham N. Aldaco Gastelum aaldaco@iastate.edu</p>
         <hr></hr>
       </div>
-      <div id="admin"></div>
+      <div id="admin">
+      <div>
+      <input type="checkbox" id="acceptdelete" name="acceptdelete" checked={checked4}
+        onChange={(e) => setChecked4(!checked4)} />
+        <button onClick={() => getOneByOneProductPrev()}>Prev</button>
+        <button onClick={() => getOneByOneProductNext()}>Next</button>
+        <button onClick={() => deleteOneProduct(product[index]._id)}>Delete</button>
+        {checked4 && (
+          <div key={product[index]._id}>
+          <img src={product[index].image} width={30} /> <br />
+          Id:{product[index]._id} <br />
+          Title: {product[index].title} <br />
+          Category: {product[index].category} <br />
+          Price: ${product[index].price} <br />
+          </div>
+        )}
+        <hr></hr>
+          </div>
+        <hr></hr>
+      </div>
       <div id="productspage">
         
         <h1>Catalog of Products</h1>
