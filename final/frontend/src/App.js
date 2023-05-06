@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"; 
+import Amounts from './amounts.json'
 function App() {
 const [product, setProduct] = useState([]); //for product view
 const [viewer1, setViewer1] = useState(true);
