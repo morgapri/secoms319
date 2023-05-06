@@ -178,7 +178,7 @@ function getAllProducts() {
         }
       }
       let hardCopy = [...cart];
-      hardCopy[id].amounts = amounts[el._id].amount++;
+      hardCopy[id].amount = amounts[el._id].amount++;
       {amounts[el._id].amount++}
       setCart(hardCopy)
     }

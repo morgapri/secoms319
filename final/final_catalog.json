@@ -5,11 +5,10 @@
   "description": "These sleek and stylish shoes are only almost ruined by the garish yellow swoosh",
   "category": "shoes",
   "image": "http://127.0.0.1:4000/images/image01.jpg",
-  "amount": 0,
-  "rating": {
-    "rate": 3.9,
-    "count": 120
-  }
+  "rating": [
+    "good",
+    "bad"
+  ]
 },{
   "_id": 2,
   "title": "Yellow Vans",
@@ -17,11 +16,10 @@
   "description": "These soft yellow vans are perfect for a nice picnic",
   "category": "shoes",
   "image": "http://127.0.0.1:4000/images/image02.jpg",
-  "amount": 0,
-  "rating": {
-    "rate": 4.7,
-    "count": 170
-  }
+  "rating": [
+    "yasss",
+    "boo"
+  ]
 },{
   "_id": 3,
   "title": "Purple Flower Dress",
@@ -29,11 +27,10 @@
   "description": "This light purple dress is complete with some flowers and a train",
   "category": "dresses",
   "image": "http://127.0.0.1:4000/images/image03.jpg",
-  "amount": 0,
-  "rating": {
-    "rate": 3.8,
-    "count": 127
-  }
+  "rating": [
+    "yas the best",
+    "I've had better"
+  ]
 },{
   "_id": 4,
   "title": "Black Jeans",
@@ -41,11 +38,10 @@
   "description": "These black jeans are just stylish enough for other people to think you are stylish",
   "category": "pants",
   "image": "http://127.0.0.1:4000/images/image04.jpg",
-  "amount": 0,
-  "rating": {
-    "rate": 4.1,
-    "count": 1003
-  }
+  "rating": [
+    "yas the best",
+    "I've had better"
+  ]
 },{
   "_id": 5,
   "title": "Blue Striped Sweater",
@@ -53,11 +49,10 @@
   "description": "This Blue Striped Sweater will not make you look like that one guy fromm Monster's Inc, I swear",
   "category": "sweaters",
   "image": "http://127.0.0.1:4000/images/image05.jpg",
-  "amount": 0,
-  "rating": {
-    "rate": 2.6,
-    "count": 37
-  }
+  "rating": [
+    "yes",
+    "no"
+  ]
 },{
   "_id": 6,
   "title": "Black Rimmed Hat with Brown String",
@@ -65,9 +60,8 @@
   "description": "This hat is a hat, please buy it",
   "category": "hats",
   "image": "http://127.0.0.1:4000/images/image06.jpg",
-  "amount": 0,
-  "rating": {
-    "rate": 1.4,
-    "count": 58
-  }
+  "rating": [
+    "prettist hat ever",
+    "even my mom doesn't like it"
+  ]
 }]
