@@ -213,7 +213,7 @@ function getAllProducts() {
       let tax = 1.1;
       for(let i = 0; i < cart.length; i++)
       {
-          totalVal+=cart[i].price*cart[i].amount;
+          totalVal+=cart[i].price*cart[i];
       }
       totalVal = totalVal * tax;
       setCartTotal(totalVal);
@@ -244,7 +244,7 @@ function getAllProducts() {
         }
       }
       let hardCopy = [...cart];
-      hardCopy[id].amount = el.amount++;
+      amounts[hardCopy[id]].amount = el.amount++;
       {el.amount++}
       setCart(hardCopy)
     }
