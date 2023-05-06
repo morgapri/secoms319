@@ -38,3 +38,17 @@ nav #home{
   color: darkslategray;
   padding-left: 5%;
 }
+
+#body button{
+  border-radius: 12px;
+  margin: 3px;
+  background-color:lightblue;
+  color: darkslategray;
+  border-style: groove;
+  border-width: 2px;
+}
+
+#cart img{
+  margin: 5px;
+  
+}
