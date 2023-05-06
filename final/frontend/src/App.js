@@ -4,7 +4,57 @@ const [product, setProduct] = useState([]); //for product view
 const [viewer1, setViewer1] = useState(true);
 const [productDetails, setproductDetails] = useState([]); //for single product view
 const [viewer3, setViewer3] = useState(true);
-const [addReview, setReview] = useState("");//the review added
+
+
+const [addNewProduct, setAddNewProduct] = useState({
+    _id: 0,
+    title: "",
+    price: 0.0,
+    description: "",
+    category: "",
+    image: "http://127.0.0.1:4000/images/",
+    rating: [""]
+  });
+
+  function handleChange(evt) {
+    const value = evt.target.value;
+    if (evt.target.name === "_id") {
+      setAddNewProduct({ ...addNewProduct, _id: value });
+    } else if (evt.target.name === "title") {
+      setAddNewProduct({ ...addNewProduct, title: value });
+    } else if (evt.target.name === "price") {
+      setAddNewProduct({ ...addNewProduct, price: value });
+    } else if (evt.target.name === "description") {
+      setAddNewProduct({ ...addNewProduct, description: value });
+    } else if (evt.target.name === "category") {
+      setAddNewProduct({ ...addNewProduct, category: value });
+    } else if (evt.target.name === "image") {
+      const temp = value;
+      setAddNewProduct({ ...addNewProduct, image: temp });
+    } else if (evt.target.name === "rate") {
+      setAddNewProduct({ ...addNewProduct, rating: [value]  });
+    } 
+  }
+
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+    fetch("http://localhost:4000/insert", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(addNewProduct),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Post a new product completed");
+      console.log(data);
+      if (data) {
+        //const keys = Object.keys(data);
+        const value = Object.values(data);
+        alert(value);
+      }
+    });
+  }
 
 //cart
 const [ProductsCategory, setProductsCategory] = useState(product);
