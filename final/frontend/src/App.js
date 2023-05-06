@@ -221,9 +221,9 @@ function getAllProducts() {
 
   const cartItems = cart.map((el) => (
       <div key={el.id}>
-          <img class = "img-fluid" src = {product[el.id].image} width={100}/>
-          {product[el.id].title}:
-           ${product[el.id].price}:
+          <img class = "img-fluid" src = {product[el.id -1].image} width={100}/>
+          {product[el.id -1].title}:
+           ${product[el.id -1].price}:
           x{el.amount}
       </div>
   ))
