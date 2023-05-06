@@ -51,7 +51,7 @@ app.post("/insert", async (req, res) => {
         description: pdescription,
         category: pcategory,
         image: pimage,
-        rating: [prate],
+        rating: prate,
     });
     try {
         // await formData.save();
