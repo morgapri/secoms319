@@ -214,7 +214,7 @@ function getAllProducts() {
       let tax = 1.1;
       for(let i = 0; i < cart.length; i++)
       {
-          totalVal+=cart[i].price*cart[i];
+          totalVal+=product[cart[i].id-1].price * cart[i].amount;
       }
       totalVal = totalVal * tax;
       setCartTotal(totalVal);
