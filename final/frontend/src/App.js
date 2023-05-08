@@ -10,6 +10,9 @@ const [checked4, setChecked4] = useState(false); //for delete
 const [amounts, setAmounts] = useState(Amounts); //access amount json
 const[cart, setCart] = useState([]);
 const[cartTotal, setCartTotal] = useState(0);
+const [checked5, setChecked5] = useState(false);
+  const [index2, setIndex2] = useState(0);
+  const [addNewPrice, setAddNewPrice] = useState(0);
 let tax = cartTotal.toFixed(2) - (cartTotal.toFixed(2) / 1.1);
 
 useEffect(() => {
@@ -266,6 +269,48 @@ function deleteOneProduct(deleteid) {
   setChecked4(!checked4);
 }
 
+//update functions
+function getOneByOneProductNext2() {
+  if (product.length > 0) {
+    if (index2 === product.length - 1) setIndex2(0);
+    else setIndex2(index2 + 1);
+    if (product.length > 0) setChecked5(true);
+    else setChecked5(false);
+  }
+}
+
+function getOneByOneProductPrev2() {
+  if (product.length > 0) {
+    if (index2 === 0) setIndex2(product.length - 1);
+    else setIndex2(index2 - 1);
+    if (product.length > 0) setChecked5(true);
+    else setChecked5(false);
+  }
+}
+function updateOneProduct(updateid, new_price) {
+  console.log("Product to update :", updateid);
+  console.log("Value to update :", new_price);
+  fetch("http://localhost:4000/update/", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ _id: updateid , price: new_price}),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Updating the product's price completed : ", updateid);
+      console.log(data);
+      if (data) {
+        //const keys = Object.keys(data);
+        const value = Object.values(data);
+        alert(value);
+      }
+    });
+  setChecked5(!checked5);
+}
+function handleUpdateChange(evt){
+  setAddNewPrice(evt.target.value);
+}
+
 return (
   <div>
     <div id="navbar" class="container-fluid">
@@ -320,6 +365,27 @@ return (
           <button onClick={() => getOneByOneProductNext()}>Next</button>
           <button onClick={() => deleteOneProduct(product[index]._id)}>Delete</button>
           
+        </div>
+        <div id="updateItem">
+        <h3>Edit one product:</h3>
+        <input type="checkbox" id="acceptupdate" name="acceptdelete" checked={checked5} onChange={(e) => setChecked5(!checked5)} />
+        <button onClick={() => getOneByOneProductPrev2()}>Prev</button>
+        <button onClick={() => getOneByOneProductNext2()}>Next</button>
+        {checked5 && (
+          <div>
+            <input type="number" placeholder="New Price" name="updated_price" value={addNewPrice} onChange={handleUpdateChange} />
+            <button onClick={() => updateOneProduct(product[index2]._id, addNewPrice)}>Update</button>
+            <div key={product[index2]._id}>
+              <img src={product[index2].image} width={30} /> <br />
+              Id:{product[index2]._id} <br />
+              Title: {product[index2].title} <br />
+              Category: {product[index2].category} <br />
+              Price: {product[index2].price} <br />
+              Rate :{product[index2].rating.rate} and Count:
+              {product[index2].rating.count} <br />
+            </div>
+          </div>
+        )}
         </div>
         <hr></hr>
       </div>

@@ -70,7 +70,7 @@ app.put("/update", async (req, res) => {
 
     try{
         const filter = { _id: `${req.body._id}` };
-        const updateDoc = { $set: { amount: `${req.body.amount}`} };
+        const updateDoc = { $set: { price: `${req.body.price}`} };
         await Product.updateOne(filter, updateDoc, null);
         const messageResponse = {
             message: `Product ${req.body_id} updated correctly`
